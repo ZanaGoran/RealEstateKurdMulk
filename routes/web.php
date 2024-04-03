@@ -46,7 +46,9 @@ Route::get('contact-us', function () {
 })->name('contact-us');
 
 
-Route::get('list', [PropertyController::class, 'getList'])->name('property.list');
+Route::get('/property/list', [PropertyController::class, 'getList'])->name('property.list');
+
+Route::get('/list', [PropertyController::class, 'getList'])->name('list');
 
 // routes/web.php
 Route::post('/report', [ReportController::class, 'store'])->name('report.store');

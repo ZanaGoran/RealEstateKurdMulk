@@ -299,7 +299,8 @@
                     <li><a class="nav-link scrollto{{ request()->routeIs('newindex') ? ' active' : '' }}" href="{{ route('newindex') }}">Home</a></li>
                     <li><a class="nav-link scrollto" href="{{ route('about-us') }}">about us</a></li>
                   
-                    <li><a class="nav-link scrollto{{ request()->routeIs('property.list') ? ' active' : '' }}" href="{{ route('property.list') }}">Properties</a></li>
+                    <li>  <a class="cta-btn align-middle" href="{{ route('list') }}">properties</a></li>
+
                  
                     <li class="dropdown">
                         <a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>

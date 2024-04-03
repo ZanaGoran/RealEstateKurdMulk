@@ -104,7 +104,7 @@
                         @auth
                             <a class="cta-btn align-middle" href="list">SEARCH</a>
                         @else
-                            <a class="cta-btn align-middle" href="{{ route('list') }}">Register Your Home</a>
+                            <a class="cta-btn align-middle" href="{{ route('list') }}">SEARCH</a>
                         @endauth
                     </div>
                 </div>
@@ -124,7 +124,7 @@
             <div class="col-lg-12">
                 <div class="cover-box" style="background-image: url('{{ $SECbackgroundImageUrl }}');">
                     <div class="content">
-                        <h3 class="cta-title">Find your dream home</h3>
+                        <h3 class="cta-title">Register Your Home</h3>
                         <p class="cta-text">
                             "Unlock the potential of your property and let its charm shine through. Upload your house here and embark on a journey to find the perfect buyer who will cherish it as much as you have. Together, let's turn your house into someone's dream home."
                         </p>
