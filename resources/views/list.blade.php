@@ -12,7 +12,7 @@
             font-family: "Open Sans", sans-serif;
             margin: 0;
             padding: 0;
-            background: radial-gradient(ellipse at bottom, #0d1d31 0%, #0c0d13 100%);
+            background: radial-gradient(ellipse at bottom, #0d1d31 0%, #416a6e 100%);
         }
 
         .container ul {
@@ -36,6 +36,18 @@
     align-items: center;
     transition: all ease-in-out 0.3s;
 }
+
+.item-container .background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.3s;
+}
+
 .item-container:hover{
 
     box-shadow: 0 0 40px #2dc997;
@@ -43,17 +55,21 @@
 
 }
 .item-container img {
-    max-width: 100%;
-    max-height: 100%;
-    width: auto;
-    height: auto;
-    object-fit: contain; /* Ensure the image fits inside the container */
+    width: 100%;
+    height: 100%;
+    min-width: 100%; /* Ensure minimum width */
+    min-height: 100%; /* Ensure minimum height */
+    object-fit: cover; /* Maintain aspect ratio and cover container */
     transition: transform 0.4s; /* Add transition for smooth scaling */
 }
 
-.item-container:hover img {
+
+
+
+.item-container:hover .background-image {
     transform: scale(1.1); /* Scale the image on hover */
 }
+
 
 
 
@@ -87,31 +103,36 @@
             font-size: 22px;
         }
 
-        .item-container li img {
-            object-fit: cover;
-            width: 100%; /* Make the image fill its container */
-            height: 200px; /* Adjusted height for better display */
-            transition: transform 0.3s;
-        }
+        .item-container img {
+    object-fit: cover; /* Ensure the image covers the entire container */
+    width: 100%;
+    height: 100%; /* Use 100% height to cover the container */
+    transition: transform 0.3s;
+}
+
 
         
 
         .detail-of-home {
-            position: absolute;
-            margin-top: 0px;
-            top: 88%;
-            left: 50%;
-            padding-top: 5%;
-            padding-bottom: 5%;
-            transform: translate(-50%, -50%);
-            z-index: 1;
-            background: rgba(18, 48, 38, 0.7);
-            color: white;
-            padding-right: 50%;
-            padding-left: 50%;
-            border-radius: 4px;
-            transition: all ease-in-out 0.3s;
-        }
+    position: absolute;
+    margin-top: 0px;
+    top: 88%;
+    left: 50%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    background: rgba(18, 48, 38, 0.7);
+    color: white;
+    padding-right: 50%;
+    padding-left: 50%;
+    border-radius: 4px;
+    transition: all ease-in-out 0.3s;
+    white-space: nowrap; /* Prevent text from wrapping */
+    overflow: hidden; /* Hide overflow text */
+    text-align: center;
+}
+
 
         .sort-buttons button {
             border: none;
@@ -170,7 +191,7 @@
         .search-sort-container {
             padding: 25px;
             height: 40px;
-            background-color:#0d1d31;
+            background-color:#416a6e;
             text-align: center;
         }
 
@@ -207,8 +228,8 @@
 
         .search-sort-container .search-button:hover,
         .search-sort-container #sort-by-price-button:hover {
-            color: rgb(255, 255, 255);
-            background-color: #2dc997;
+            color: rgb(255, 255, 25f5);
+            background-color: #2dc9d7;
         }
 
         .search-sort-container #sort-by-date-button {
@@ -223,6 +244,7 @@
        .navnav{
         text-decoration: none;
        }
+     
     </style>
 
 </head>
@@ -251,7 +273,7 @@
                         @if (!empty($property->photos) && is_array($property->photos))
                             <!-- Display the first photo as the thumbnail -->
                             @if (!empty($property->photos[0]))
-                                <img src="{{ asset($property->photos[0]) }}" class="img-fluid" alt="" />
+                                <div class="background-image" style="background-image: url('{{ asset($property->photos[0]) }}');"></div>
                             @else
                                 <p>No photo available</p>
                             @endif
@@ -269,6 +291,7 @@
         @endforeach
     </ul>
 </div>
+
 
 
     <script>
