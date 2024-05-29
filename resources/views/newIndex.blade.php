@@ -74,7 +74,442 @@
         <h2>
             A great platform to buy, sell and rent your properties without any agent or commissions.
         </h2>
+
+
+<!--searchBox-->
+
+
+
+
+    <style>
+      
+    
+
+      #search {
+        display: grid;
+        grid-area: search;
+        grid-template:
+          "search" 60px
+          / 420px;
+        justify-content: center;
+        align-content: center;
+        justify-items: stretch;
+        align-items: stretch;
+        background: none;
+      }
+
+      #search input {
+        color: #fff;
+        display: block;
+        grid-area: search;
+        -webkit-appearance: none;
+        appearance: none;
+        width: 100%;
+        height: 100%;
+        background: none;
+        padding: 0 30px 0 60px;
+        border: none;
+        border-radius: 100px;
+        font: 24px/1 system-ui, sans-serif;
+        outline-offset: -8px;
+      }
+
+      #search svg {
+        grid-area: search;
+        overflow: visible;
+        color: #2dc997;
+        fill: none;
+        stroke: currentColor;
+      }
+
+      .spark {
+        fill: currentColor;
+        stroke: none;
+        r: 15;
+      }
+
+      .spark:nth-child(1) {
+        animation: spark-radius 2.03s 1s both, spark-one-motion 2s 1s both;
+      }
+
+      @keyframes spark-radius {
+        0% {
+          r: 0;
+          animation-timing-function: cubic-bezier(0, 0.3, 0, 1.57);
+        }
+        30% {
+          r: 15;
+          animation-timing-function: cubic-bezier(1, -0.39, 0.68, 1.04);
+        }
+        95% {
+          r: 8;
+        }
+        99% {
+          r: 10;
+        }
+        99.99% {
+          r: 7;
+        }
+        100% {
+          r: 0;
+        }
+      }
+
+      @keyframes spark-one-motion {
+        0% {
+          transform: translate(-20%, 50%);
+          animation-timing-function: cubic-bezier(0.63, 0.88, 0, 1.25);
+        }
+        20% {
+          transform: rotate(-0deg) translate(0%, -50%);
+          animation-timing-function: ease-in;
+        }
+        80% {
+          transform: rotate(-230deg) translateX(-20%) rotate(-100deg)
+            translateX(15%);
+          animation-timing-function: linear;
+        }
+        100% {
+          transform: rotate(-360deg) translate(30px, 100%);
+          animation-timing-function: cubic-bezier(0.64, 0.66, 0, 0.51);
+        }
+      }
+
+      .spark:nth-child(2) {
+        animation: spark-radius 2.03s 1s both, spark-two-motion 2.03s 1s both;
+      }
+
+      @keyframes spark-two-motion {
+        0% {
+          transform: translate(120%, 50%) rotate(-70deg) translateY(0%);
+          animation-timing-function: cubic-bezier(0.36, 0.18, 0.94, 0.55);
+        }
+        20% {
+          transform: translate(90%, -80%) rotate(60deg) translateY(-80%);
+          animation-timing-function: cubic-bezier(0.16, 0.77, 1, 0.4);
+        }
+        40% {
+          transform: translate(110%, -50%) rotate(-30deg) translateY(-120%);
+          animation-timing-function: linear;
+        }
+        70% {
+          transform: translate(100%, -50%) rotate(120deg) translateY(-100%);
+          animation-timing-function: linear;
+        }
+        80% {
+          transform: translate(95%, 50%) rotate(80deg) translateY(-150%);
+          animation-timing-function: cubic-bezier(0.64, 0.66, 0, 0.51);
+        }
+        100% {
+          transform: translate(100%, 50%) rotate(120deg) translateY(0%);
+        }
+      }
+
+      .spark:nth-child(3) {
+        animation: spark-radius 2.05s 1s both, spark-three-motion 2.03s 1s both;
+      }
+
+      @keyframes spark-three-motion {
+        0% {
+          transform: translate(50%, 100%) rotate(-40deg) translateX(0%);
+          animation-timing-function: cubic-bezier(0.62, 0.56, 1, 0.54);
+        }
+        30% {
+          transform: translate(40%, 70%) rotate(20deg) translateX(20%);
+          animation-timing-function: cubic-bezier(0, 0.21, 0.88, 0.46);
+        }
+        40% {
+          transform: translate(65%, 20%) rotate(-50deg) translateX(15%);
+          animation-timing-function: cubic-bezier(0, 0.24, 1, 0.62);
+        }
+        60% {
+          transform: translate(60%, -40%) rotate(-50deg) translateX(20%);
+          animation-timing-function: cubic-bezier(0, 0.24, 1, 0.62);
+        }
+        70% {
+          transform: translate(70%, -0%) rotate(-180deg) translateX(20%);
+          animation-timing-function: cubic-bezier(0.15, 0.48, 0.76, 0.26);
+        }
+        100% {
+          transform: translate(70%, -0%) rotate(-360deg) translateX(0%)
+            rotate(180deg) translateX(20%);
+        }
+      }
+
+      .burst {
+        stroke-width: 3;
+      }
+
+      .burst :nth-child(2n) {
+        color: #ff783e;
+      }
+      .burst :nth-child(3n) {
+        color: #ffab00;
+      }
+      .burst :nth-child(4n) {
+        color: #55e214;
+      }
+      .burst :nth-child(5n) {
+        color: #82d9f5;
+      }
+
+      .circle {
+        r: 6;
+      }
+
+      .rect {
+        width: 10px;
+        height: 10px;
+      }
+
+      .triangle {
+        d: path("M0,-6 L7,6 L-7,6 Z");
+        stroke-linejoin: round;
+      }
+
+      .plus {
+        d: path("M0,-5 L0,5 M-5,0L 5,0");
+        stroke-linecap: round;
+      }
+
+      .burst:nth-child(4) {
+        transform: translate(30px, 100%) rotate(150deg);
+      }
+
+      .burst:nth-child(5) {
+        transform: translate(50%, 0%) rotate(-20deg);
+      }
+
+      .burst:nth-child(6) {
+        transform: translate(100%, 50%) rotate(75deg);
+      }
+
+      .burst * {
+      }
+
+      @keyframes particle-fade {
+        0%,
+        100% {
+          opacity: 0;
+        }
+        5%,
+        80% {
+          opacity: 1;
+        }
+      }
+
+      .burst :nth-child(1) {
+        animation: particle-fade 600ms 2.95s both,
+          particle-one-move 600ms 2.95s both;
+      }
+      .burst :nth-child(2) {
+        animation: particle-fade 600ms 2.95s both,
+          particle-two-move 600ms 2.95s both;
+      }
+      .burst :nth-child(3) {
+        animation: particle-fade 600ms 2.95s both,
+          particle-three-move 600ms 2.95s both;
+      }
+      .burst :nth-child(4) {
+        animation: particle-fade 600ms 2.95s both,
+          particle-four-move 600ms 2.95s both;
+      }
+      .burst :nth-child(5) {
+        animation: particle-fade 600ms 2.95s both,
+          particle-five-move 600ms 2.95s both;
+      }
+      .burst :nth-child(6) {
+        animation: particle-fade 600ms 2.95s both,
+          particle-six-move 600ms 2.95s both;
+      }
+
+      @keyframes particle-one-move {
+        0% {
+          transform: rotate(0deg) translate(-5%) scale(0.0001, 0.0001);
+        }
+        100% {
+          transform: rotate(-20deg) translateX(8%) scale(0.5, 0.5);
+        }
+      }
+      @keyframes particle-two-move {
+        0% {
+          transform: rotate(0deg) translate(-5%) scale(0.0001, 0.0001);
+        }
+        100% {
+          transform: rotate(0deg) translateX(8%) scale(0.5, 0.5);
+        }
+      }
+      @keyframes particle-three-move {
+        0% {
+          transform: rotate(0deg) translate(-5%) scale(0.0001, 0.0001);
+        }
+        100% {
+          transform: rotate(20deg) translateX(8%) scale(0.5, 0.5);
+        }
+      }
+      @keyframes particle-four-move {
+        0% {
+          transform: rotate(0deg) translate(-5%) scale(0.0001, 0.0001);
+        }
+        100% {
+          transform: rotate(-35deg) translateX(12%);
+        }
+      }
+      @keyframes particle-five-move {
+        0% {
+          transform: rotate(0deg) translate(-5%) scale(0.0001, 0.0001);
+        }
+        100% {
+          transform: rotate(0deg) translateX(12%);
+        }
+      }
+      @keyframes particle-six-move {
+        0% {
+          transform: rotate(0deg) translate(-5%) scale(0.0001, 0.0001);
+        }
+        100% {
+          transform: rotate(35deg) translateX(12%);
+        }
+      }
+
+      .bar {
+  width: 100%;
+  height: 100%;
+  ry: 50%;
+  stroke-width: 5; /* Adjust the stroke width here */
+  animation: bar-in 900ms 3s both;
+}
+
+
+      @keyframes bar-in {
+        0% {
+          stroke-dasharray: 0 180 0 226 0 405 0 0;
+        }
+        100% {
+          stroke-dasharray: 0 0 181 0 227 0 405 0;
+        }
+      }
+
+      .magnifier {
+        animation: magnifier-in 600ms 3.6s both;
+        transform-box: fill-box;
+      }
+
+      @keyframes magnifier-in {
+        0% {
+          transform: translate(20px, 8px) rotate(-45deg) scale(0.01, 0.01);
+        }
+        50% {
+          transform: translate(-4px, 8px) rotate(-45deg);
+        }
+        100% {
+          transform: translate(0px, 0px) rotate(0deg);
+        }
+      }
+
+      .magnifier .glass {
+        cx: 27;
+        cy: 27;
+        r: 8;
+        stroke-width: 3;
+      }
+      .magnifier .handle {
+        x1: 32;
+        y1: 32;
+        x2: 44;
+        y2: 44;
+        stroke-width: 3;
+      }
+
+      #results {
+        grid-area: results;
+        background: hsl(0, 0%, 95%);
+      }
+
+
+
+
+      
+
+
+   
+
+
+
+
+
+
+
+
+
+    </style>
+
+<div id="search">
+  <svg viewBox="0 0 420 60" xmlns="http://www.w3.org/2000/svg">
+    <rect class="bar" />
+
+    <g class="magnifier">
+      <circle class="glass" />
+      <line class="handle" x1="32" y1="32" x2="44" y2="44"></line>
+    </g>
+
+    <g class="sparks">
+      <circle class="spark" />
+      <circle class="spark" />
+      <circle class="spark" />
+    </g>
+
+    <g class="burst pattern-one">
+      <circle class="particle circle" />
+      <path class="particle triangle" />
+      <circle class="particle circle" />
+      <path class="particle plus" />
+      <rect class="particle rect" />
+      <path class="particle triangle" />
+    </g>
+    <g class="burst pattern-two">
+      <path class="particle plus" />
+      <circle class="particle circle" />
+      <path class="particle triangle" />
+      <rect class="particle rect" />
+      <circle class="particle circle" />
+      <path class="particle plus" />
+    </g>
+    <g class="burst pattern-three">
+      <circle class="particle circle" />
+      <rect class="particle rect" />
+      <path class="particle plus" />
+      <path class="particle triangle" />
+      <rect class="particle rect" />
+      <path class="particle plus" />
+    </g>
+  </svg>
+  <input type="search" name="q" aria-label="Search for inspiration" id="searchInput" placeholder="" />
+</div>
+
+<div id="results"></div>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+  setTimeout(function() {
+    document.getElementById("searchInput").setAttribute("placeholder", "Search for an address or city");
+  }, 3000); // Set the delay in milliseconds
+});
+
+
+</script>
+	
+ 
+
+
+
+
+
+                                     <!--searchBox-->
+
     </div>
+                                     
 </section>
     <!-- End Hero Section -->
 
@@ -201,76 +636,9 @@
     </div>
 </div>
 <script>
-$(document).ready(function () {
-    let container = $('.onlylist-container');
-    const itemsPerRow = 4;
-    const rowsToShow = 2;
-    const itemsToShow = itemsPerRow * rowsToShow;
 
-    function initializeIsotope() {
-        container.isotope({
-            itemSelector: '.onlylist-item-container',
-            getSortData: {
-                date: function (item) {
-                    const dateStr = $(item).find('.onlylist-item-date').text()
-                    const dateParts = dateStr.split('/')
-                    const year = parseInt(dateParts[2])
-                    const month = parseInt(dateParts[1]) - 1
-                    const day = parseInt(dateParts[0])
-                    return new Date(year, month, day)
-                },
-                number: function (item) {
-                    const priceStr = $(item).find('.onlylist-item-price').text()
-                    const price = parseFloat(priceStr.replace('$', ''))
-                    return price
-                }
-            }
-        });
 
-        // Limit the initial items to show
-        container.isotope({ filter: ':lt(' + itemsToShow + ')' });
-    }
-
-    function sortBYdate() {
-        container.isotope({ sortBy: 'date', sortAscending: false })
-    }
-
-    function sortBYprice() {
-        container.isotope({ sortBy: 'number', sortAscending: true })
-    }
-
-    function performSearch() {
-        let searchTerm = $('#onlylist-search-input').val().toLowerCase();
-        container.isotope({
-            filter: function () {
-                let propertyTitle = $(this).find('.onlylist-title').text().toLowerCase();
-                return propertyTitle.includes(searchTerm);
-            }
-        });
-    }
-
-    initializeIsotope();
-
-    // Update the click event handler
-    $('.onlylist-details-link').click(function (event) {
-        // Stop the click event from propagating up to the parent li
-        event.stopPropagation();
-
-        let propertyId = $(this).attr('href').split('/').pop();
-
-        // Redirect to the portfolio page with the property ID
-        window.location.href = '{{ url("onlylist-portfolio") }}/' + propertyId;
-    });
-
-    $('#onlylist-sort-by-date-button').click(sortBYdate);
-    $('#onlylist-sort-by-price-button').click(sortBYprice);
-
-    $('#onlylist-search-input').on('input', performSearch);
-
-    $(window).on('load', function () {
-        container.isotope('layout')
-    });
-});
+  
 
 
 </script>

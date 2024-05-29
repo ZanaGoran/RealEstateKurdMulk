@@ -92,7 +92,7 @@
             <p>Our project started as a simple idea and grew into something much more. It's a testament to our dedication, creativity, and teamwork.</p>
             <p>Through hard work and collaboration, we've built a platform that we're proud of. This project has been a journey of learning and growth for all of us.</p>
             <p>Thank you for visiting and being a part of our story.</p>
-            <p>Created by Ahmad Nyaz, Taha Ahmed and Zana Goran.</p>
+            <p>Created by Ahmad Nyaz,Taha Ahmed and Zana Goran.</p>
             <p><strong>Address:</strong> Erbil, Kurdistan, Iraq</p>
             <p><strong>Website Creation Date:</strong> April 3, 2024</p> 
             
