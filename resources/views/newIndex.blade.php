@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+  <link href='https://unpkg.com/css.gg@2.0.0/icons/css/search.css' rel='stylesheet'>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
@@ -81,384 +82,364 @@
 
 
 
-    <style>
-      
-    
+<style>
+  #search {
+    display: grid;
+    grid-area: search;
+    grid-template:
+      "search" 60px
+      / 420px;
+    justify-content: center;
+    align-content: center;
+    justify-items: stretch;
+    align-items: stretch;
+    background: none;
+  }
 
-      #search {
-        display: grid;
-        grid-area: search;
-        grid-template:
-          "search" 60px
-          / 420px;
-        justify-content: center;
-        align-content: center;
-        justify-items: stretch;
-        align-items: stretch;
-        background: none;
-      }
+  #search input {
+    color: #fff;
+    display: block;
+    grid-area: search;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 100%;
+    background: none;
+    padding: 0 30px 0 60px;
+    border: none;
+    border-radius: 100px;
+    font: 24px/1 system-ui, sans-serif;
+    outline-offset: -8px;
+  }
 
-      #search input {
-        color: #fff;
-        display: block;
-        grid-area: search;
-        -webkit-appearance: none;
-        appearance: none;
-        width: 100%;
-        height: 100%;
-        background: none;
-        padding: 0 30px 0 60px;
-        border: none;
-        border-radius: 100px;
-        font: 24px/1 system-ui, sans-serif;
-        outline-offset: -8px;
-      }
+  #search svg {
+    grid-area: search;
+    overflow: visible;
+    color: #2dc997;
+    fill: none;
+    stroke: currentColor;
+  }
 
-      #search svg {
-        grid-area: search;
-        overflow: visible;
-        color: #2dc997;
-        fill: none;
-        stroke: currentColor;
-      }
+  .spark {
+    fill: currentColor;
+    stroke: none;
+    r: 15;
+  }
 
-      .spark {
-        fill: currentColor;
-        stroke: none;
-        r: 15;
-      }
+  .spark:nth-child(1) {
+    animation: spark-radius 2.03s 1s both, spark-one-motion 2s 1s both;
+  }
 
-      .spark:nth-child(1) {
-        animation: spark-radius 2.03s 1s both, spark-one-motion 2s 1s both;
-      }
+  @keyframes spark-radius {
+    0% {
+      r: 0;
+      animation-timing-function: cubic-bezier(0, 0.3, 0, 1.57);
+    }
+    30% {
+      r: 15;
+      animation-timing-function: cubic-bezier(1, -0.39, 0.68, 1.04);
+    }
+    95% {
+      r: 8;
+    }
+    99% {
+      r: 10;
+    }
+    99.99% {
+      r: 7;
+    }
+    100% {
+      r: 0;
+    }
+  }
 
-      @keyframes spark-radius {
-        0% {
-          r: 0;
-          animation-timing-function: cubic-bezier(0, 0.3, 0, 1.57);
-        }
-        30% {
-          r: 15;
-          animation-timing-function: cubic-bezier(1, -0.39, 0.68, 1.04);
-        }
-        95% {
-          r: 8;
-        }
-        99% {
-          r: 10;
-        }
-        99.99% {
-          r: 7;
-        }
-        100% {
-          r: 0;
-        }
-      }
+  @keyframes spark-one-motion {
+    0% {
+      transform: translate(-20%, 50%);
+      animation-timing-function: cubic-bezier(0.63, 0.88, 0, 1.25);
+    }
+    20% {
+      transform: rotate(-0deg) translate(0%, -50%);
+      animation-timing-function: ease-in;
+    }
+    80% {
+      transform: rotate(-230deg) translateX(-20%) rotate(-100deg)
+        translateX(15%);
+      animation-timing-function: linear;
+    }
+    100% {
+      transform: rotate(-360deg) translate(30px, 100%);
+      animation-timing-function: cubic-bezier(0.64, 0.66, 0, 0.51);
+    }
+  }
 
-      @keyframes spark-one-motion {
-        0% {
-          transform: translate(-20%, 50%);
-          animation-timing-function: cubic-bezier(0.63, 0.88, 0, 1.25);
-        }
-        20% {
-          transform: rotate(-0deg) translate(0%, -50%);
-          animation-timing-function: ease-in;
-        }
-        80% {
-          transform: rotate(-230deg) translateX(-20%) rotate(-100deg)
-            translateX(15%);
-          animation-timing-function: linear;
-        }
-        100% {
-          transform: rotate(-360deg) translate(30px, 100%);
-          animation-timing-function: cubic-bezier(0.64, 0.66, 0, 0.51);
-        }
-      }
+  .spark:nth-child(2) {
+    animation: spark-radius 2.03s 1s both, spark-two-motion 2.03s 1s both;
+  }
 
-      .spark:nth-child(2) {
-        animation: spark-radius 2.03s 1s both, spark-two-motion 2.03s 1s both;
-      }
+  @keyframes spark-two-motion {
+    0% {
+      transform: translate(120%, 50%) rotate(-70deg) translateY(0%);
+      animation-timing-function: cubic-bezier(0.36, 0.18, 0.94, 0.55);
+    }
+    20% {
+      transform: translate(90%, -80%) rotate(60deg) translateY(-80%);
+      animation-timing-function: cubic-bezier(0.16, 0.77, 1, 0.4);
+    }
+    40% {
+      transform: translate(110%, -50%) rotate(-30deg) translateY(-120%);
+      animation-timing-function: linear;
+    }
+    70% {
+      transform: translate(100%, -50%) rotate(120deg) translateY(-100%);
+      animation-timing-function: linear;
+    }
+    80% {
+      transform: translate(95%, 50%) rotate(80deg) translateY(-150%);
+      animation-timing-function: cubic-bezier(0.64, 0.66, 0, 0.51);
+    }
+    100% {
+      transform: translate(100%, 50%) rotate(120deg) translateY(0%);
+    }
+  }
 
-      @keyframes spark-two-motion {
-        0% {
-          transform: translate(120%, 50%) rotate(-70deg) translateY(0%);
-          animation-timing-function: cubic-bezier(0.36, 0.18, 0.94, 0.55);
-        }
-        20% {
-          transform: translate(90%, -80%) rotate(60deg) translateY(-80%);
-          animation-timing-function: cubic-bezier(0.16, 0.77, 1, 0.4);
-        }
-        40% {
-          transform: translate(110%, -50%) rotate(-30deg) translateY(-120%);
-          animation-timing-function: linear;
-        }
-        70% {
-          transform: translate(100%, -50%) rotate(120deg) translateY(-100%);
-          animation-timing-function: linear;
-        }
-        80% {
-          transform: translate(95%, 50%) rotate(80deg) translateY(-150%);
-          animation-timing-function: cubic-bezier(0.64, 0.66, 0, 0.51);
-        }
-        100% {
-          transform: translate(100%, 50%) rotate(120deg) translateY(0%);
-        }
-      }
+  .spark:nth-child(3) {
+    animation: spark-radius 2.05s 1s both, spark-three-motion 2.03s 1s both;
+  }
 
-      .spark:nth-child(3) {
-        animation: spark-radius 2.05s 1s both, spark-three-motion 2.03s 1s both;
-      }
+  @keyframes spark-three-motion {
+    0% {
+      transform: translate(50%, 100%) rotate(-40deg) translateX(0%);
+      animation-timing-function: cubic-bezier(0.62, 0.56, 1, 0.54);
+    }
+    30% {
+      transform: translate(40%, 70%) rotate(20deg) translateX(20%);
+      animation-timing-function: cubic-bezier(0, 0.21, 0.88, 0.46);
+    }
+    40% {
+      transform: translate(65%, 20%) rotate(-50deg) translateX(15%);
+      animation-timing-function: cubic-bezier(0, 0.24, 1, 0.62);
+    }
+    60% {
+      transform: translate(60%, -40%) rotate(-50deg) translateX(20%);
+      animation-timing-function: cubic-bezier(0, 0.24, 1, 0.62);
+    }
+    70% {
+      transform: translate(70%, -0%) rotate(-180deg) translateX(20%);
+      animation-timing-function: cubic-bezier(0.15, 0.48, 0.76, 0.26);
+    }
+    100% {
+      transform: translate(70%, -0%) rotate(-360deg) translateX(0%)
+        rotate(180deg) translateX(20%);
+    }
+  }
 
-      @keyframes spark-three-motion {
-        0% {
-          transform: translate(50%, 100%) rotate(-40deg) translateX(0%);
-          animation-timing-function: cubic-bezier(0.62, 0.56, 1, 0.54);
-        }
-        30% {
-          transform: translate(40%, 70%) rotate(20deg) translateX(20%);
-          animation-timing-function: cubic-bezier(0, 0.21, 0.88, 0.46);
-        }
-        40% {
-          transform: translate(65%, 20%) rotate(-50deg) translateX(15%);
-          animation-timing-function: cubic-bezier(0, 0.24, 1, 0.62);
-        }
-        60% {
-          transform: translate(60%, -40%) rotate(-50deg) translateX(20%);
-          animation-timing-function: cubic-bezier(0, 0.24, 1, 0.62);
-        }
-        70% {
-          transform: translate(70%, -0%) rotate(-180deg) translateX(20%);
-          animation-timing-function: cubic-bezier(0.15, 0.48, 0.76, 0.26);
-        }
-        100% {
-          transform: translate(70%, -0%) rotate(-360deg) translateX(0%)
-            rotate(180deg) translateX(20%);
-        }
-      }
+  .burst {
+    stroke-width: 3;
+  }
 
-      .burst {
-        stroke-width: 3;
-      }
+  .burst :nth-child(2n) {
+    color: #ff783e;
+  }
+  .burst :nth-child(3n) {
+    color: #ffab00;
+  }
+  .burst :nth-child(4n) {
+    color: #55e214;
+  }
+  .burst :nth-child(5n) {
+    color: #82d9f5;
+  }
 
-      .burst :nth-child(2n) {
-        color: #ff783e;
-      }
-      .burst :nth-child(3n) {
-        color: #ffab00;
-      }
-      .burst :nth-child(4n) {
-        color: #55e214;
-      }
-      .burst :nth-child(5n) {
-        color: #82d9f5;
-      }
+  .circle {
+    r: 6;
+  }
 
-      .circle {
-        r: 6;
-      }
+  .rect {
+    width: 10px;
+    height: 10px;
+  }
 
-      .rect {
-        width: 10px;
-        height: 10px;
-      }
+  .triangle {
+    d: path("M0,-6 L7,6 L-7,6 Z");
+    stroke-linejoin: round;
+  }
 
-      .triangle {
-        d: path("M0,-6 L7,6 L-7,6 Z");
-        stroke-linejoin: round;
-      }
+  .plus {
+    d: path("M0,-5 L0,5 M-5,0L 5,0");
+    stroke-linecap: round;
+  }
 
-      .plus {
-        d: path("M0,-5 L0,5 M-5,0L 5,0");
-        stroke-linecap: round;
-      }
+  .burst:nth-child(4) {
+    transform: translate(30px, 100%) rotate(150deg);
+  }
 
-      .burst:nth-child(4) {
-        transform: translate(30px, 100%) rotate(150deg);
-      }
+  .burst:nth-child(5) {
+    transform: translate(50%, 0%) rotate(-20deg);
+  }
 
-      .burst:nth-child(5) {
-        transform: translate(50%, 0%) rotate(-20deg);
-      }
+  .burst:nth-child(6) {
+    transform: translate(100%, 50%) rotate(75deg);
+  }
 
-      .burst:nth-child(6) {
-        transform: translate(100%, 50%) rotate(75deg);
-      }
+  .burst * {
+  }
 
-      .burst * {
-      }
+  @keyframes particle-fade {
+    0%,
+    100% {
+      opacity: 0;
+    }
+    5%,
+    80% {
+      opacity: 1;
+    }
+  }
 
-      @keyframes particle-fade {
-        0%,
-        100% {
-          opacity: 0;
-        }
-        5%,
-        80% {
-          opacity: 1;
-        }
-      }
+  .burst :nth-child(1) {
+    animation: particle-fade 600ms 2.95s both,
+      particle-one-move 600ms 2.95s both;
+  }
+  .burst :nth-child(2) {
+    animation: particle-fade 600ms 2.95s both,
+      particle-two-move 600ms 2.95s both;
+  }
+  .burst :nth-child(3) {
+    animation: particle-fade 600ms 2.95s both,
+      particle-three-move 600ms 2.95s both;
+  }
+  .burst :nth-child(4) {
+    animation: particle-fade 600ms 2.95s both,
+      particle-four-move 600ms 2.95s both;
+  }
+  .burst :nth-child(5) {
+    animation: particle-fade 600ms 2.95s both,
+      particle-five-move 600ms 2.95s both;
+  }
+  .burst :nth-child(6) {
+    animation: particle-fade 600ms 2.95s both,
+      particle-six-move 600ms 2.95s both;
+  }
 
-      .burst :nth-child(1) {
-        animation: particle-fade 600ms 2.95s both,
-          particle-one-move 600ms 2.95s both;
-      }
-      .burst :nth-child(2) {
-        animation: particle-fade 600ms 2.95s both,
-          particle-two-move 600ms 2.95s both;
-      }
-      .burst :nth-child(3) {
-        animation: particle-fade 600ms 2.95s both,
-          particle-three-move 600ms 2.95s both;
-      }
-      .burst :nth-child(4) {
-        animation: particle-fade 600ms 2.95s both,
-          particle-four-move 600ms 2.95s both;
-      }
-      .burst :nth-child(5) {
-        animation: particle-fade 600ms 2.95s both,
-          particle-five-move 600ms 2.95s both;
-      }
-      .burst :nth-child(6) {
-        animation: particle-fade 600ms 2.95s both,
-          particle-six-move 600ms 2.95s both;
-      }
+  @keyframes particle-one-move {
+    0% {
+      transform: rotate(0deg) translate(-5%) scale(0.0001, 0.0001);
+    }
+    100% {
+      transform: rotate(-20deg) translateX(8%) scale(0.5, 0.5);
+    }
+  }
+  @keyframes particle-two-move {
+    0% {
+      transform: rotate(0deg) translate(-5%) scale(0.0001, 0.0001);
+    }
+    100% {
+      transform: rotate(0deg) translateX(8%) scale(0.5, 0.5);
+    }
+  }
+  @keyframes particle-three-move {
+    0% {
+      transform: rotate(0deg) translate(-5%) scale(0.0001, 0.0001);
+    }
+    100% {
+      transform: rotate(20deg) translateX(8%) scale(0.5, 0.5);
+    }
+  }
+  @keyframes particle-four-move {
+    0% {
+      transform: rotate(0deg) translate(-5%) scale(0.0001, 0.0001);
+    }
+    100% {
+      transform: rotate(-35deg) translateX(12%);
+    }
+  }
+  @keyframes particle-five-move {
+    0% {
+      transform: rotate(0deg) translate(-5%) scale(0.0001, 0.0001);
+    }
+    100% {
+      transform: rotate(0deg) translateX(12%);
+    }
+  }
+  @keyframes particle-six-move {
+    0% {
+      transform: rotate(0deg) translate(-5%) scale(0.0001, 0.0001);
+    }
+    100% {
+      transform: rotate(35deg) translateX(12%);
+    }
+  }
 
-      @keyframes particle-one-move {
-        0% {
-          transform: rotate(0deg) translate(-5%) scale(0.0001, 0.0001);
-        }
-        100% {
-          transform: rotate(-20deg) translateX(8%) scale(0.5, 0.5);
-        }
-      }
-      @keyframes particle-two-move {
-        0% {
-          transform: rotate(0deg) translate(-5%) scale(0.0001, 0.0001);
-        }
-        100% {
-          transform: rotate(0deg) translateX(8%) scale(0.5, 0.5);
-        }
-      }
-      @keyframes particle-three-move {
-        0% {
-          transform: rotate(0deg) translate(-5%) scale(0.0001, 0.0001);
-        }
-        100% {
-          transform: rotate(20deg) translateX(8%) scale(0.5, 0.5);
-        }
-      }
-      @keyframes particle-four-move {
-        0% {
-          transform: rotate(0deg) translate(-5%) scale(0.0001, 0.0001);
-        }
-        100% {
-          transform: rotate(-35deg) translateX(12%);
-        }
-      }
-      @keyframes particle-five-move {
-        0% {
-          transform: rotate(0deg) translate(-5%) scale(0.0001, 0.0001);
-        }
-        100% {
-          transform: rotate(0deg) translateX(12%);
-        }
-      }
-      @keyframes particle-six-move {
-        0% {
-          transform: rotate(0deg) translate(-5%) scale(0.0001, 0.0001);
-        }
-        100% {
-          transform: rotate(35deg) translateX(12%);
-        }
-      }
+  .bar {
+    width: 100%;
+    height: 100%;
+    ry: 50%;
+    stroke-width: 5;
+    animation: bar-in 900ms 3s both;
+  }
 
-      .bar {
-  width: 100%;
-  height: 100%;
-  ry: 50%;
-  stroke-width: 5; /* Adjust the stroke width here */
-  animation: bar-in 900ms 3s both;
-}
+  @keyframes bar-in {
+    0% {
+      stroke-dasharray: 0 180 0 226 0 405 0 0;
+    }
+    100% {
+      stroke-dasharray: 0 0 181 0 227 0 405 0;
+    }
+  }
 
+  .magnifier {
+    animation: magnifier-in 600ms 3.6s both;
+    transform-box: fill-box;
+  }
 
-      @keyframes bar-in {
-        0% {
-          stroke-dasharray: 0 180 0 226 0 405 0 0;
-        }
-        100% {
-          stroke-dasharray: 0 0 181 0 227 0 405 0;
-        }
-      }
+  @keyframes magnifier-in {
+    0% {
+      transform: translate(20px, 8px) rotate(-45deg) scale(0.01, 0.01);
+    }
+    50% {
+      transform: translate(-4px, 8px) rotate(-45deg);
+    }
+    100% {
+      transform: translate(0px, 0px) rotate(0deg);
+    }
+  }
 
-      .magnifier {
-        animation: magnifier-in 600ms 3.6s both;
-        transform-box: fill-box;
-      }
+  .magnifier .handle {
+    x1: 32;
+    y1: 32;
+    x2: 44;
+    y2: 44;
+    stroke-width: 3;
+  }
 
-      @keyframes magnifier-in {
-        0% {
-          transform: translate(20px, 8px) rotate(-45deg) scale(0.01, 0.01);
-        }
-        50% {
-          transform: translate(-4px, 8px) rotate(-45deg);
-        }
-        100% {
-          transform: translate(0px, 0px) rotate(0deg);
-        }
-      }
+  #searchIcon {
+    cursor: pointer;
+    display: none; /* Initially hide the search icon */
+  }
 
-      .magnifier .glass {
-        cx: 27;
-        cy: 27;
-        r: 8;
-        stroke-width: 3;
-      }
-      .magnifier .handle {
-        x1: 32;
-        y1: 32;
-        x2: 44;
-        y2: 44;
-        stroke-width: 3;
-      }
+  #results {
+    grid-area: results;
+    background: hsl(0, 0%, 95%);
+  }
 
-      #results {
-        grid-area: results;
-        background: hsl(0, 0%, 95%);
-      }
+  #search i {
+    margin-top: -40px;
+    margin-left: 15px;
+    color: #2dc997;
+    cursor: pointer;
+  }
+</style>
 
-
-
-
-      
-
-
-   
-
-
-
-
-
-
-
-
-
-    </style>
 
 <div id="search">
+  <i class="gg-search search-icon" id="searchIcon"></i>
   <svg viewBox="0 0 420 60" xmlns="http://www.w3.org/2000/svg">
     <rect class="bar" />
-
-    <g class="magnifier">
-      <circle class="glass" />
-      <line class="handle" x1="32" y1="32" x2="44" y2="44"></line>
-    </g>
-
     <g class="sparks">
       <circle class="spark" />
       <circle class="spark" />
       <circle class="spark" />
     </g>
-
     <g class="burst pattern-one">
       <circle class="particle circle" />
       <path class="particle triangle" />
@@ -489,16 +470,28 @@
 
 <div id="results"></div>
 
-
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-  setTimeout(function() {
-    document.getElementById("searchInput").setAttribute("placeholder", "Search for an address or city");
-  }, 3000); // Set the delay in milliseconds
-});
+    setTimeout(function() {
+      document.getElementById("searchInput").setAttribute("placeholder", "Search for an address or city");
+      document.getElementById("searchIcon").style.display = "block"; // Show the search icon after 3 seconds
+    }, 3000); // Set the delay in milliseconds
 
+    // Log a message when the script attaches event listeners
+    console.log("Event listeners attached");
 
+    // Add click event listener directly to the search icon element
+    document.querySelector('#searchIcon').addEventListener("click", function() {
+      console.log("Search icon clicked");
+      var query = document.getElementById("searchInput").value;
+      window.location.href = "{{ route('list') }}?q=" + encodeURIComponent(query);
+    });
+  });
 </script>
+
+
+
+
 	
  
 
@@ -526,98 +519,59 @@
           <!-- ======= Call To Action Section ======= -->
           @php
     $SECbackgroundImageUrl2 = asset('../images/AdobeStock_565645717.jpeg');
-@endphp
-          <section id="register-index">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="cover-box" style="background-image: url('{{ $SECbackgroundImageUrl2 }}');">
-                    <div class="content">
-                        <h3 class="cta-title">find your dream home</h3>
-                        <p class="cta-text">
-                       "Finding the perfect home can be a daunting task. The search button streamlines this process by allowing users to filter properties based on their specific criteria, such as location, price range"
-                        @auth
-                            <a class="cta-btn align-middle" href="list">SEARCH</a>
-                        @else
-                            <a class="cta-btn align-middle" href="{{ route('list') }}">SEARCH</a>
-                        @endauth
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-          @php
     $SECbackgroundImageUrl = asset('../images/house.jpg');
+    $SECbackgroundImageUrl = asset('../images/giving house keys.webp');
 @endphp
 
-<section id="register-index">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="cover-box" style="background-image: url('{{ $SECbackgroundImageUrl }}');">
-                    <div class="content">
-                        <h3 class="cta-title">Register Your Home</h3>
-                        <p class="cta-text">
-                            "Unlock the potential of your property and let its charm shine through. Upload your house here and embark on a journey to find the perfect buyer who will cherish it as much as you have. Together, let's turn your house into someone's dream home."
-                        </p>
-                        @auth
-                            <a class="cta-btn align-middle" href="upload">Upload Your Home</a>
-                        @else
-                            <a class="cta-btn align-middle" href="{{ route('login') }}">Register Your Home</a>
-                        @endauth
-                    </div>
-                </div>
+<div id="services">
+    <div class="service-box" style="background-image: url('../images/AdobeStock_565645717.jpeg');">
+        <div class="service-content">
+            <h3 class="service-title">Buy a Property</h3>
+            <p class="service-text">Finding the perfect home can be daunting. Our search tool streamlines the process, allowing users to filter properties by location, price, and more.</p>
+            <div class="buttons-container">
+                <a href="{{ route('list') }}" class="button">Search</a>
             </div>
         </div>
     </div>
-</section>
+
+    <div class="service-box" style="background-image: url('../images/house.jpg');">
+        <div class="service-content">
+            <h3 class="service-title">Sell a Property</h3>
+            <p class="service-text">Unlock the charm of your property. Upload it here and embark on a journey to find the perfect buyer who will appreciate it as much as you do.</p>
+            <div class="buttons-container">
+                @auth
+                    <a href="{{ route('upload') }}" class="button">Register Your Home</a>
+                @else
+                    <a href="{{ route('login') }}" class="button">Register Your Home</a>
+                @endauth
+            </div>
+        </div>
+    </div>
+
+    <div class="service-box" style="background-image: url('../images/giving house keys.webp');">
+        <div class="service-content">
+            <h3 class="service-title">Rent a Property</h3>
+            <p class="service-text">We're simplifying the rental process - from browsing to payment. Discover your perfect space effortlessly, tailored to your needs and budget.</p>
+            <div class="buttons-container">
+            <a href="{{ route('list', ['type' => 'rent']) }}" class="button find-rental-button">Find Rental</a>
+
+
+</div>
+
+
+        </div>
+    </div>
+</div>
+
+
+
 
           <!-- End Call To Action Section -->
 
           <!-- search section -->
 
           
-{{-- 
-          /*
-          <div class="onlylist-search-sort-container">
-    <input type="text" class="onlylist-search-input" placeholder="Search..." id="onlylist-search-input" />
-    <button class="onlylist-search-button" onclick="performSearch()">Search</button>
-    <button id="onlylist-sort-by-date-button">SORT BY DATE</button>
-    <button id="onlylist-sort-by-price-button">CHEAPEST PRICE</button>
-</div>
 
-<div class="onlylist-container">
-    <ul>
-        @foreach($properties as $property)
-            <li class="onlylist-item-container">
-                <a href="{{ isset($property) ? route('property.portfolio', ['id' => $property->id]) : '#' }}" class="onlylist-details-link" title="More Details">
-                    @if (!empty($property->photos) && is_array($property->photos))
-                        <!-- Display the first photo as the thumbnail -->
-                        @if (!empty($property->photos[0]))
-                            <img src="{{ asset($property->photos[0]) }}" class="img-fluid" alt="" />
-                        @else
-                            <p>No photo available</p>
-                        @endif
-                    @else
-                        <p>No photo available</p>
-                    @endif
-
-                    <div class="onlylist-detail-of-home">
-                        <div class="onlylist-title">{{ $property->title }}</div>
-                        <div class="onlylist-item-price">{{ $property->price }}</div>
-                        <div class="onlylist-item-date">{{ $property->created_at->format('d/m/Y') }}</div>
-                    </div>
-                    <!-- Updated the route name to onlylist-property.portofilio -->
-                </a>
-            </li>
-        @endforeach
-    </ul>
-</div>
-
-*/ --}}
 
 <div class="about-centered-content">
     <div class="about-container">
@@ -635,41 +589,22 @@
         </div>
     </div>
 </div>
-<script>
 
-
-  
-
-
-</script>
-
-
-
-        <!-- end of search section -->
-
-        <!-- 
-    - #SERVICE
-  -->
-      </section>
-
-      <!-- ======= Portfolio Section ======= -->
-    
 
 
    
-      <!-- End Portfolio Section -->
 
-      <!-- ======= Team Section ======= -->
+      </section>
 
-      <!-- End Team Section -->
+      
 
      
-      <!-- End Contact Section -->
+   
       
     </main>
     <!-- End #main -->
 
-    <!-- ======= Footer ======= -->
+   
    
 
     <a
@@ -947,6 +882,6 @@
   new PureCounter()
 })()
 </script>
-    <script src="assets/js/main.js"></script>
+    
   </body>
 </html>

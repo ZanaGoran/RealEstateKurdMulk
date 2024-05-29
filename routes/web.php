@@ -59,5 +59,4 @@ Route::get('/newindex', [PropertyController::class, 'newindex'])->name('newindex
 Route::middleware(['auth'])->group(function () {
     Route::post('/property/upload', [PropertyController::class, 'postProperty'])->name('property.upload');
     Route::get('/property/{id}', [PropertyController::class, 'getPropertyDetails'])->name('property.details');
-    Route::get('/portfolio/{id}', [PropertyController::class, 'showPortfolio'])->name('property.portfolio');
 });

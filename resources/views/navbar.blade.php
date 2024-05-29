@@ -118,6 +118,7 @@
             background: #fff;
             box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
             transition: 0.3s;
+            
         }
 
         .navbar .dropdown ul li {
@@ -279,6 +280,7 @@
             box-shadow: 0 0 40px #2dc997;
         }
         .dropdown-menu{
+            
             border: none;
         }
         .btn-get-started{

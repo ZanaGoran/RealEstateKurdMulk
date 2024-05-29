@@ -58,9 +58,7 @@ class PropertyController extends Controller
         $user = User::find($request->user_id);
 
         // Check if the user is active
-        if (!$user || !$user->active) {
-            return response()->json(['error' => 'User is not active. Cannot post a property.'], 422);
-        }
+     
 
         // Cache new property availability
         Cache::put('new_property_available', true, 1440);
@@ -149,9 +147,8 @@ public function newindex()
     {
         // Fetch the property details based on the ID
         $property = Property::find($id);
-
+    
         // Pass the property details to the portfolio view
         return view('portofilio', compact('property'));
-
     }
 }

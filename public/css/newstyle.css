@@ -583,6 +583,15 @@ section {
 
 
 
+
+
+
+
+
+
+
+
+
 .about-centered-content {
     display        : flex;
     justify-content: center;
@@ -677,4 +686,131 @@ section {
 .cta-text {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     /* Add shadow to the text */
+}
+
+
+
+
+
+/* #services boxes */
+
+
+#services {
+    padding        : 40px 0;
+    background     : none;
+    display        : flex;
+    justify-content: center;
+    align-items    : flex-start;
+    flex-wrap      : wrap;
+}
+
+.service-box {
+    position           : relative;
+    padding            : 40px;
+    border-radius      : 10px;
+    background-size    : cover;
+    background-position: center;
+    color              : #000000;
+    text-align         : center;
+    margin             : 20px;
+    flex               : 0 0 350px;
+    display            : flex;
+    flex-direction     : column;
+    justify-content    : center;
+    align-items        : center;
+    transition         : transform 0.3s ease-in-out;
+    height             : 400px;
+    overflow           : hidden;
+}
+
+.service-box::before {
+    content      : "";
+    position     : absolute;
+    top          : 0;
+    right        : 0;
+    bottom       : 0;
+    left         : 0;
+    background   : rgba(0, 0, 0, 0.2);
+    z-index      : 1;
+    border-radius: 10px;
+}
+
+.service-content {
+    position       : relative;
+    z-index        : 2;
+    background     : rgba(255, 255, 255, 0.7);
+    padding        : 35px;
+    border-radius  : 10px;
+    width          : 300px;
+    height         : 350px;
+    overflow       : hidden;
+    display        : flex;
+    flex-direction : column;
+    justify-content: flex-end;
+    align-items    : center;
+    box-shadow     : 0 0 20px rgba(0, 0, 0, 0.9);
+    font-size      : 19px;
+    font-weight    : bold;
+}
+
+.service-box:hover {
+    transform: translateY(-10px);
+}
+
+.service-title {
+    font-size    : 20px;
+    font-weight  : bold;
+    margin-bottom: 10px;
+    white-space  : nowrap;
+    overflow     : hidden;
+    text-overflow: ellipsis;
+}
+
+.service-text {
+    font-size    : 16px;
+    margin-bottom: 1px;
+    text-align   : center;
+}
+
+.service-btn {
+    font-size      : 16px;
+    color          : #fff;
+    background     : #2dc997;
+    padding        : 10px 20px;
+    border-radius  : 5px;
+    text-decoration: none;
+    transition     : background 0.3s ease-in-out;
+}
+
+.service-btn:hover {
+    background: #27b58b;
+}
+
+.buttons-container {
+    display        : flex;
+    justify-content: center;
+    gap            : 20px;
+    margin-top     : 20px;
+}
+
+.button {
+    padding        : 10px 20px;
+    border-style   : solid;
+    border-width   : 2px;
+    border-color   : #208a68;
+    border-radius  : 25px;
+    font-size      : 17px;
+    font-weight    : 600;
+    color          : #0f835e;
+    background     : none;
+    cursor         : pointer;
+    transition     : background-color 0.3s ease-in-out;
+    text-decoration: none;
+    display        : inline-flex;
+    align-items    : center;
+    justify-content: center;
+}
+
+.button:hover {
+    background-color: #b3c8c1;
 }

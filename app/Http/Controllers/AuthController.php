@@ -23,8 +23,6 @@ class AuthController extends Controller
                 'phone' => 'required|numeric|unique:users|digits_between:10,15',
                 'email' => 'required|email|unique:users|max:255',
                 'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:4096',
-                'email_verified' => 'boolean',
-                'active' => 'boolean',
                 'role' => 'nullable|in:User,EstateOffice',
                 'first_name' => 'nullable|string|max:255',
                 'last_name' => 'nullable|string|max:255',
@@ -40,8 +38,8 @@ class AuthController extends Controller
             ]);
 
             // Set the default values for 'email_verified' and 'active'
-            $request->merge(['email_verified' => $request->input('email_verified', false)]);
-            $request->merge(['active' => $request->input('active', false)]);
+            $data['email_verified'] = true; // Default to true
+            $data['active'] = true; // Default to true
 
             // Handle image upload
             if ($request->hasFile('image')) {
@@ -68,13 +66,13 @@ class AuthController extends Controller
         } catch (\Illuminate\Database\QueryException $queryException) {
             // Handle database query errors
             Log::error('Database error creating user: ' . $queryException->getMessage());
-    
+
             $errorMessage = 'Error creating user. Please check your input and try again.';
             return redirect('/login-page')->withInput()->withErrors(['error' => $errorMessage])->with('toggleRegisterSection', true);
         } catch (\Exception $e) {
             // Catch any other exceptions
             Log::error('Error creating user: ' . $e->getMessage());
-    
+
             $errorMessage = 'An unexpected error occurred. Please try again later.';
             return redirect('/login-page')->withInput()->withErrors(['error' => $errorMessage])->with('toggleRegisterSection', true);
         }
@@ -88,7 +86,7 @@ class AuthController extends Controller
                 'email' => 'required|email',
                 'password' => 'required',
             ]);
-    
+
             // If validation fails, redirect back with errors
             if ($validator->fails()) {
                 return redirect('/login-page')
@@ -96,24 +94,24 @@ class AuthController extends Controller
                     ->withInput()
                     ->with('active_form', 'login-section'); // Set the active form to 'login-section'
             }
-    
+
             $credentials = $request->only('email', 'password');
-    
+
             // Attempt to authenticate the user
             if (Auth::attempt($credentials)) {
                 // Authentication successful
                 $request->session()->regenerate();
-    
+
                 // Log the successful authentication
                 Log::info('Authentication successful for email: ' . $request->input('email'));
-    
+
                 // Redirect to /newindex without using intended
                 return redirect('/newindex');
             }
-    
+
             // Authentication failed
             Log::info('Authentication failed for email: ' . $request->input('email'));
-    
+
             return redirect('/login-page')
                 ->withErrors(['error' => 'Invalid email address or password.'])
                 ->withInput()

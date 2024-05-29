@@ -305,10 +305,20 @@
 
     <!-- Main JS File -->
    <!-- Main JS File -->
-<script>
+   <script>
     document.addEventListener('DOMContentLoaded', function () {
         var propertyCarousel = new bootstrap.Carousel(document.getElementById('propertyCarousel'), {
-            interval: 5000 // Set interval to 5000 milliseconds (5 seconds)
+            interval: 5000, // Set interval to 5000 milliseconds (5 seconds)
+            wrap: true // Enable wrapping for continuous sliding
+        });
+
+        // Add event listeners to pause and resume the carousel on mouseenter and mouseleave
+        var carouselElement = document.getElementById('propertyCarousel');
+        carouselElement.addEventListener('mouseenter', function () {
+            propertyCarousel.pause();
+        });
+        carouselElement.addEventListener('mouseleave', function () {
+            propertyCarousel.cycle();
         });
     });
 </script>
