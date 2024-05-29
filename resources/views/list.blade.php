@@ -10,12 +10,18 @@
     
     <title>Sorting List</title>
     <style>
+           .navbar {
+            border-radius: 5px;
+           
+           
+            color: #1E90FF;
+        }
         body {
             background-color: #555555;
             font-family: "Open Sans", sans-serif;
             margin: 0;
             padding: 0;
-            background: radial-gradient(ellipse at bottom, #0d1d31 0%, #416a6e 100%);
+            background: linear-gradient(90deg, rgba(224,227,226,1) 0%, rgba(218,232,227,1) 89%);
         }
         .container {
             margin: 2%;
@@ -34,8 +40,8 @@
             margin-bottom: 20px;
             margin-right: 10px;
             margin-left: 5px;
-            border: none;
-            border-radius: 4px;
+            border: none ;
+            border-radius: 10px;
             background-color: #f9f9f9;
             width: calc(26% - 50px);
             display: flex;
@@ -43,7 +49,7 @@
             justify-content: flex-start;
             align-items: center;
             transition: all ease-in-out 0.3s;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
         }
         .background-image-container {
             position: relative;
@@ -96,7 +102,7 @@
             padding: 5px 10px;
             border-radius: 4px;
             background: rgba(255, 255, 255, 0.8);
-            color: darkcyan;
+            color: #1E90FF;
             font-size: 0.9em;
             font-weight: bold;
             z-index: 1;
@@ -113,16 +119,16 @@
             bottom: 10px;
             left: 10px;
             background: rgba(255, 255, 255, 0.8);
-            color: darkcyan;
+            color: #1E90FF;
         }
         .item-date {
             bottom: 10px;
             right: 10px;
             background: rgba(255, 255, 255, 0.8);
-            color: darkcyan;
+            color: #1E90FF;
         }
         .item-container:hover {
-            box-shadow: 0 0 40px #2dc997;
+            box-shadow: 0 0 40px #3399ff;
         }
         .item-container:hover .background-image {
             transform: scale(1.1);
@@ -135,7 +141,7 @@
         }
         .item-container a {
             text-decoration: none;
-            color: #555555;
+            color: #1E90FF;
             display: block;
             width: 100%;
         }
@@ -143,7 +149,7 @@
             width: 100%;
             padding: 5px 10px;
             background: lightgray;
-            color: darkcyan;
+            color: #1E90FF;
             text-align: left;
             border-radius: 0 0 4px 4px;
             transition: all ease-in-out 0.3s;
@@ -157,7 +163,7 @@
         }
         .detail-of-home .item-location {
             font-size: 0.9em;
-            color: darkcyan;
+            color: #1E90FF;
             margin-bottom: 5px;
         }
         .detail-of-home .item-info {
@@ -190,22 +196,22 @@
         }
         #sort-by-date-button {
             color: #fff;
-            background: #2dc997;
+            background: #3399ff;
         }
         #sort-by-date-button:hover {
-            background: #27ae80;
+            background: #3399ff;
         }
         #sort-by-price-button {
-            background-color: #ebebeb;
+            background-color: #3399ff;
             color: #525252;
         }
         #sort-by-price-button:hover {
-            background-color: #2dc997;
+            background-color: #3399ff;
             color: #fff;
         }
         .search-sort-container {
             padding: 25px;
-            background-color: #416a6e;
+            background: radial-gradient(circle, rgba(64,170,250,1) 7%, rgba(19,67,113,1) 84%);
             text-align: center;
         }
         .search-sort-container .search-input,
@@ -231,15 +237,15 @@
         }
         .search-sort-container .search-button:hover,
         .search-sort-container #sort-by-price-button:hover {
-            background-color: #2dc997;
+            background-color: #3399ff;
             color: #fff;
         }
         .search-sort-container #sort-by-date-button {
-            background: #2dc997;
+            background: #3399ff;
             color: #fff;
         }
         .search-sort-container #sort-by-date-button:hover {
-            background: #27ae80;
+            background: #3399ff;
         }
         .filter-dropdown {
             border: none;
@@ -252,7 +258,7 @@
             margin: 0 10px;
         }
         .filter-dropdown:hover {
-            background-color: #2dc997;
+            background-color: #3399ff;
             color: #fff;
         }
         .dropdown-container {
@@ -265,9 +271,16 @@
         .item-container:hover .detail-of-home {
             transform: scale(1);
         }
+        .black-navbar #header #navbar a,
+      .black-navbar #header #navbar a:focus {
+        color:#000066; /* Set the desired text color */
+      }
+      .black-navbar #header:hover{
+        color: #1E90FF;
+      }
     </style>
 </head>
-<body>
+<body class="black-navbar">
     @include('navbar')
     <div class="search-sort-container">
         <input type="text" class="search-input" placeholder="Search..." id="search-input" />
@@ -415,11 +428,11 @@
 
     PriceBTN.on('click', function () {
         DateBTN.css({ backgroundColor: '#ebebeb', color: '#666666' });
-        PriceBTN.css({ backgroundColor: '#2dc997', color: 'white' });
+        PriceBTN.css({ backgroundColor: '#3399ff', color: 'white' });
     });
 
     DateBTN.on('click', function () {
-        DateBTN.css({ backgroundColor: '#2dc997', color: 'white' });
+        DateBTN.css({ backgroundColor: '#3399ff', color: ' white' });
         PriceBTN.css({ backgroundColor: '#ebebeb', color: '#666666' });
     });
 

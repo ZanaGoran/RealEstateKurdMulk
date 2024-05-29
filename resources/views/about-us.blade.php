@@ -74,9 +74,7 @@
         color: #000; /* Set the desired text color */
       }
 
-      .black-navbar #header {
-        background: #fff; /* Set the desired background color */
-      }
+     
     </style>
   </head>
   <body class="black-navbar">
