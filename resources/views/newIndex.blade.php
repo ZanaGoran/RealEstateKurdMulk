@@ -115,7 +115,7 @@
   #search svg {
     grid-area: search;
     overflow: visible;
-    color: #2dc997;
+    color: #3399ff;
     fill: none;
     stroke: currentColor;
   }
@@ -282,8 +282,7 @@
     transform: translate(100%, 50%) rotate(75deg);
   }
 
-  .burst * {
-  }
+ 
 
   @keyframes particle-fade {
     0%,
@@ -425,7 +424,7 @@
   #search i {
     margin-top: -40px;
     margin-left: 15px;
-    color: #2dc997;
+    color: #3399ff;
     cursor: pointer;
   }
 </style>

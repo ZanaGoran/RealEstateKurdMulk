@@ -85,7 +85,7 @@
             height: 2px;
             bottom: -6px;
             left: 0;
-            background-color: #2dc997;
+            background-color: #3399ff;
             visibility: hidden;
             transform: scaleX(0);
             transition: all 0.3s ease-in-out 0s;
@@ -115,7 +115,7 @@
             z-index: 99;
             opacity: 0;
             visibility: hidden;
-            background: #fff;
+            background: #3399ff;
             box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
             transition: 0.3s;
             
@@ -264,10 +264,11 @@
 
         .user-initial-circle {
             border: none;
+            border-radius: 25px;
             width: 30px;
             height: 30px;
-            background-color: #2dc997; /* Circle background color */
-            color:aliceblue; /* Text color */
+            background-color: #3399ff; /* Circle background color */
+            color:white; /* Text color */
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -277,14 +278,29 @@
             transition: .3s;
         }
         .user-initial-circle:hover{
-            box-shadow: 0 0 40px #2dc997;
+            box-shadow: 0 0 40px #3399ff;
         }
         .dropdown-menu{
-            
+            border-radius: 20px;
             border: none;
+            color: #fff;
         }
         .btn-get-started{
             border: none;
+            color: #fff;
+        }
+        .dropdown-menu button{
+            color: #fff;
+            background: none;
+            border: #000;
+            border-width: 1px;
+            border-radius: 10px;
+            cursor: pointer;
+            text-decoration-line: underline;
+            transition: 0.2s;
+        }
+        .dropdown-menu button:hover{
+          font-size: 15px;
         }
     </style>
 </head>

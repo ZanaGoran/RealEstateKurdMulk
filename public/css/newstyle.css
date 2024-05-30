@@ -10,20 +10,20 @@
 # General
 --------------------------------------------------------------*/
 body {
-    background : #355048;
+    background : #dff1f8;
     color      : #666666;
     font-family: "Open Sans", sans-serif;
 }
 
 a {
-    color          : #2dc997;
+    color          : #3399ff;
     text-decoration: none;
 }
 
 a:hover,
 a:active,
 a:focus {
-    color          : #2dca98;
+    color          : #3399ff;
     outline        : none;
     text-decoration: none;
 }
@@ -70,7 +70,7 @@ h6 {
     right        : 15px;
     bottom       : 15px;
     z-index      : 996;
-    background   : #2dc997;
+    background   : #3399ff;
     width        : 40px;
     height       : 40px;
     border-radius: 4px;
@@ -84,7 +84,7 @@ h6 {
 }
 
 .back-to-top:hover {
-    background: #49d6a9;
+    background: #3399ff;
     color     : #fff;
 }
 
@@ -244,8 +244,8 @@ header .btn-get-started {
 }
 
 header .btn-get-started:hover {
-    background: #2dc997;
-    border    : 2px solid #2dc997;
+    background: #3399ff;
+    border    : 2px solid #3399ff;
 }
 
 /*--------------------------------------------------------------
@@ -338,8 +338,8 @@ section {
 }
 
 #register-index .cta-btn:hover {
-    background: #2dc997;
-    border    : 2px solid #2dc997;
+    background: #3399ff;
+    border    : 2px solid #3399ff;
 }
 
 
@@ -392,7 +392,7 @@ section {
 }
 
 .onlylist-item-container:hover {
-    box-shadow: 0 0 40px #2dc997;
+    box-shadow: 0 0 40px #3399ff;
 }
 
 .onlylist-item-container a {
@@ -489,13 +489,13 @@ section {
 
 .onlylist-sort-buttons #onlylist-sort-by-date-button {
     color     : #fff;
-    background: #2dc997;
+    background: #3399ff;
     border    : none;
 }
 
 .onlylist-sort-buttons #onlylist-sort-by-date-button:hover {
     color     : #fff;
-    background: #2dc997;
+    background: #3399ff;
     border    : none;
 }
 
@@ -507,7 +507,7 @@ section {
 
 .onlylist-sort-buttons #onlylist-sort-by-price-button:hover {
     color           : rgb(255, 255, 255);
-    background-color: #2dc997;
+    background-color: #3399ff;
 }
 
 .onlylist-item-container img:hover {
@@ -560,12 +560,12 @@ section {
 .onlylist-search-sort-container .onlylist-search-button:hover,
 .onlylist-search-sort-container #onlylist-sort-by-price-button:hover {
     color           : rgb(255, 255, 255);
-    background-color: #2dc997;
+    background-color: #3399ff;
 }
 
 .onlylist-search-sort-container #onlylist-sort-by-date-button {
     color     : #fff;
-    background: #2dc997;
+    background: #3399ff;
 }
 
 .onlylist-search-sort-container #onlylist-sort-by-date-button:hover {
@@ -775,7 +775,7 @@ section {
 .service-btn {
     font-size      : 16px;
     color          : #fff;
-    background     : #2dc997;
+    background     : #3399ff;
     padding        : 10px 20px;
     border-radius  : 5px;
     text-decoration: none;
@@ -783,7 +783,7 @@ section {
 }
 
 .service-btn:hover {
-    background: #27b58b;
+    background: #3399ff;
 }
 
 .buttons-container {
@@ -797,11 +797,11 @@ section {
     padding        : 10px 20px;
     border-style   : solid;
     border-width   : 2px;
-    border-color   : #208a68;
+    border-color   : #3399ff;
     border-radius  : 25px;
     font-size      : 17px;
     font-weight    : 600;
-    color          : #0f835e;
+    color          : #3399ff;
     background     : none;
     cursor         : pointer;
     transition     : background-color 0.3s ease-in-out;
@@ -812,5 +812,6 @@ section {
 }
 
 .button:hover {
-    background-color: #b3c8c1;
+    background-color: #3399ff;
+    color           : #ffffff;
 }

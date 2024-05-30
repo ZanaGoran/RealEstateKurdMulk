@@ -142,12 +142,7 @@
 
       /* Style for the submit button */
       #submitBtn {
-        background-image: radial-gradient(
-          circle at top right,
-          #56dfb3,
-          rgb(41, 196, 160),
-          #03755b
-        );
+        background: radial-gradient(circle, rgba(64,170,250,1) 7%, rgba(19,67,113,1) 84%);
         color: #ffffff;
         padding: 15px;
         padding-left: 25px;
@@ -160,15 +155,10 @@
         left: 50%;
         transform: translateX(-50%);
         box-shadow: 7px 7px 45px #777777, -2px -2px 65px #ffffff;
-        transition: 0.7s;
+        transition: 0.9s;
       }
       #submitBtn:hover {
-        background-image: radial-gradient(
-          circle at top right,
-          #36cd9d,
-          rgb(58, 167, 142),
-          #03755b
-        );
+        background: radial-gradient(circle, rgba(64,170,250,1) 7%, rgba(19,67,113,1) 84%);
         color: #ffffff;
         font-size: 14px;
       }
