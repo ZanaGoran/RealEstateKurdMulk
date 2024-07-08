@@ -242,13 +242,13 @@
           <label for="additional_information">Additional Information:</label>
           <textarea id="additional_information" name="description"></textarea>
         </div>
-
+        <div id="preview" class="preview"></div>
         <div id="drop-zone" class="drop-zone">
           Drag and drop photos here
           <input type="file" id="fileInputButton" name="photos[]" multiple />
         </div>
 
-        <div id="preview" class="preview"></div>
+        
 
         <button type="button" id="submitBtn" onclick="submitForm()">Submit</button>
         <input type="hidden" name="user_id" value="{{ auth()->id() }}">

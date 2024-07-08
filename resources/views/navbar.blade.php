@@ -362,7 +362,7 @@
             </ul>
         </div>
     @else
-        <a href="{{ route('login') }}" class="btn-get-started">Login</a>
+      
     @endauth
 </li>
 
