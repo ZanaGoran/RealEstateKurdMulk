@@ -48,7 +48,7 @@ body {
 #register-section {
     padding       : 20px;
     border-radius : 8px;
-    box-shadow    : 0 0 200px #3399ff;
+    box-shadow    : 0 0 200px #303b97;
     display       : flex;
     flex-direction: column;
     align-items   : center;
@@ -61,7 +61,7 @@ body {
     background-image: linear-gradient(#ffffff 100%, 120deg, #8d8d8d 0%);
     padding         : 20px;
     border-radius   : 8px;
-    box-shadow      : 0 0 4500px #3399ff;
+    box-shadow      : 0 0 4500px #303b97;
     display         : flex;
     flex-direction  : column;
     align-items     : center;
@@ -92,7 +92,7 @@ form {
 }
 
 button {
-    background-color: #3399ff;
+    background-color: #303b97;
     color           : #fff;
     padding         : 10px;
     border          : none;
@@ -102,7 +102,7 @@ button {
 }
 
 button:hover {
-    background-color: #3399ff;
+    background-color: #303b97;
 }
 
 .text-danger {

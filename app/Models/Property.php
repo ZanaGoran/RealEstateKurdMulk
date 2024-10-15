@@ -9,7 +9,6 @@ class Property extends Model
 {
     use HasFactory;
 
-
     protected $fillable = [
         'user_id',
         'title',
@@ -49,23 +48,20 @@ class Property extends Model
         'comments' => 'json',
         'featured' => 'boolean',
         'highlighted' => 'boolean',
-
     ];
 
     public function user()
     {
         return $this->belongsTo(User::class);
     }
+
     public function reports()
     {
         return $this->hasMany(Report::class);
     }
-    // Property model
-public function owner()
-{
-    return $this->belongsTo(User::class, 'user_id');
-}
 
-
-
+    public function owner()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

@@ -16,14 +16,14 @@ body {
 }
 
 a {
-    color          : #3399ff;
+    color          : #303b97;
     text-decoration: none;
 }
 
 a:hover,
 a:active,
 a:focus {
-    color          : #3399ff;
+    color          : #303b97;
     outline        : none;
     text-decoration: none;
 }
@@ -70,7 +70,7 @@ h6 {
     right        : 15px;
     bottom       : 15px;
     z-index      : 996;
-    background   : #3399ff;
+    background   : #303b97;
     width        : 40px;
     height       : 40px;
     border-radius: 4px;
@@ -84,7 +84,7 @@ h6 {
 }
 
 .back-to-top:hover {
-    background: #3399ff;
+    background: #303b97;
     color     : #fff;
 }
 
@@ -228,25 +228,7 @@ h6 {
     }
 }
 
-header .btn-get-started {
-    font-family   : "Poppins", sans-serif;
-    text-transform: lowercase;
-    font-weight   : 400;
-    font-size     : 16px;
-    letter-spacing: 1px;
-    display       : inline-block;
-    padding       : 2% 14px;
-    border-radius : 50px;
-    transition    : 0.5s;
-    margin        : 10px;
-    border        : 2px solid #fff;
-    color         : #fff;
-}
 
-header .btn-get-started:hover {
-    background: #3399ff;
-    border    : 2px solid #3399ff;
-}
 
 /*--------------------------------------------------------------
 # Sections
@@ -338,8 +320,8 @@ section {
 }
 
 #register-index .cta-btn:hover {
-    background: #3399ff;
-    border    : 2px solid #3399ff;
+    background: #303b97;
+    border    : 2px solid #303b97;
 }
 
 
@@ -392,7 +374,7 @@ section {
 }
 
 .onlylist-item-container:hover {
-    box-shadow: 0 0 40px #3399ff;
+    box-shadow: 0 0 40px #303b97;
 }
 
 .onlylist-item-container a {
@@ -489,13 +471,13 @@ section {
 
 .onlylist-sort-buttons #onlylist-sort-by-date-button {
     color     : #fff;
-    background: #3399ff;
+    background: #303b97;
     border    : none;
 }
 
 .onlylist-sort-buttons #onlylist-sort-by-date-button:hover {
     color     : #fff;
-    background: #3399ff;
+    background: #303b97;
     border    : none;
 }
 
@@ -507,7 +489,7 @@ section {
 
 .onlylist-sort-buttons #onlylist-sort-by-price-button:hover {
     color           : rgb(255, 255, 255);
-    background-color: #3399ff;
+    background-color: #303b97;
 }
 
 .onlylist-item-container img:hover {
@@ -560,17 +542,17 @@ section {
 .onlylist-search-sort-container .onlylist-search-button:hover,
 .onlylist-search-sort-container #onlylist-sort-by-price-button:hover {
     color           : rgb(255, 255, 255);
-    background-color: #3399ff;
+    background-color: #303b97;
 }
 
 .onlylist-search-sort-container #onlylist-sort-by-date-button {
     color     : #fff;
-    background: #3399ff;
+    background: #303b97;
 }
 
 .onlylist-search-sort-container #onlylist-sort-by-date-button:hover {
     color     : #fff;
-    background: #2dc997;
+    background: #303b97;
 }
 
 .navnav {
@@ -775,7 +757,7 @@ section {
 .service-btn {
     font-size      : 16px;
     color          : #fff;
-    background     : #3399ff;
+    background     : #303b97;
     padding        : 10px 20px;
     border-radius  : 5px;
     text-decoration: none;
@@ -783,7 +765,7 @@ section {
 }
 
 .service-btn:hover {
-    background: #3399ff;
+    background: #303b97;
 }
 
 .buttons-container {
@@ -797,11 +779,11 @@ section {
     padding        : 10px 20px;
     border-style   : solid;
     border-width   : 2px;
-    border-color   : #3399ff;
+    border-color   : #303b97;
     border-radius  : 25px;
     font-size      : 17px;
     font-weight    : 600;
-    color          : #3399ff;
+    color          : #303b97;
     background     : none;
     cursor         : pointer;
     transition     : background-color 0.3s ease-in-out;
@@ -812,6 +794,6 @@ section {
 }
 
 .button:hover {
-    background-color: #3399ff;
+    background-color: #303b97;
     color           : #ffffff;
 }

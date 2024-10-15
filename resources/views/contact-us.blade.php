@@ -17,7 +17,15 @@
 opacity: 1;
 background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #dedee0 9px ), repeating-linear-gradient( #45e5f755, #45e5f7 );
         }
-        
+        .unique-header {
+    position  : fixed;
+    height    : 80px;
+    width     : 100%;
+    z-index   : 100;
+    padding   : 0 20px;
+    background: #303b97;
+    /* Ensure a background color if needed */
+}
         .centered-content {
             display: flex;
             justify-content: center;

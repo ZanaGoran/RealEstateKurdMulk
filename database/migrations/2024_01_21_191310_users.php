@@ -34,7 +34,7 @@ return new class extends Migration
             $table->boolean('email_verified')->default(false);
             $table->string('email_verification_token')->nullable();
             $table->json('preferences')->nullable();
-            $table->enum('role', ['User', 'EstateOffice'])->default('User');
+            $table->enum('role', ['User', 'Agent', 'Admin'])->default('User');
             $table->boolean('active')->default(false);
             $table->timestamps();
         });

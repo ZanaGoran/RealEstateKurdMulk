@@ -71,7 +71,7 @@
 
 <section style="background-image: url('{{ $backgroundImageUrl }}');" id="hero">
     <div class="hero-container" data-aos="zoom-in" data-aos-delay="100">
-        <h1>Kurdistan Real Estate</h1>
+        <h1>DREAM HAVEN</h1>
         <h2>
             A great platform to buy, sell and rent your properties without any agent or commissions.
         </h2>
@@ -115,7 +115,7 @@
   #search svg {
     grid-area: search;
     overflow: visible;
-    color: #3399ff;
+    color: #c2c7ee;
     fill: none;
     stroke: currentColor;
   }
@@ -373,7 +373,7 @@
     width: 100%;
     height: 100%;
     ry: 50%;
-    stroke-width: 5;
+    stroke-width: 3;
     animation: bar-in 900ms 3s both;
   }
 
@@ -415,6 +415,10 @@
     cursor: pointer;
     display: none; /* Initially hide the search icon */
   }
+  #searchInput::placeholder {
+   color      : #c2c7ee;
+  opacity: 1; /* Ensures full opacity for the color */
+}
 
   #results {
     grid-area: results;
@@ -424,7 +428,7 @@
   #search i {
     margin-top: -40px;
     margin-left: 15px;
-    color: #3399ff;
+    color: #c2c7ee;
     cursor: pointer;
   }
 </style>
@@ -479,11 +483,19 @@
     // Log a message when the script attaches event listeners
     console.log("Event listeners attached");
 
+
+    document.getElementById('searchInput').addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            const query = this.value;
+            window.location.href = `{{ route('properties.search') }}?q=${query}`;
+        }
+    });
     // Add click event listener directly to the search icon element
     document.querySelector('#searchIcon').addEventListener("click", function() {
       console.log("Search icon clicked");
       var query = document.getElementById("searchInput").value;
-      window.location.href = "{{ route('list') }}?q=" + encodeURIComponent(query);
+      window.location.href = "{{ route('properties.search') }}?q=" + encodeURIComponent(query);
     });
   });
 </script>
@@ -538,11 +550,11 @@
             <h3 class="service-title">Sell a Property</h3>
             <p class="service-text">Unlock the charm of your property. Upload it here and embark on a journey to find the perfect buyer who will appreciate it as much as you do.</p>
             <div class="buttons-container">
-                @auth
-                    <a href="{{ route('upload') }}" class="button">Register Your Home</a>
-                @else
-                    <a href="{{ route('login') }}" class="button">Register Your Home</a>
-                @endauth
+            @auth
+        <a href="{{ route('upload') }}" class="button">Register Your Home</a>
+    @else
+        <a href="{{ route('login-page') }}" class="button">Register Your Home</a>
+    @endauth
             </div>
         </div>
     </div>
