@@ -21,6 +21,9 @@ class PropertyController extends Controller
     public function postProperty(Request $request)
     {
         $validator = Validator::make($request->all(), [
+            'agent_id' => 'nullable|exists:agents,agent_id',  // Reference to agent
+            'office_id' => 'nullable|exists:real_estate_offices,office_id',  // Reference to office
+    
             'user_id' => 'required|exists:users,id',
             'title' => 'required|string|max:255',
             'description' => 'required|string',

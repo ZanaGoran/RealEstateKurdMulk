@@ -24,7 +24,7 @@ class AuthController extends Controller
                 'phone' => 'required|numeric|unique:users|digits_between:10,15',
                 'email' => 'required|email|unique:users|max:255',
                 'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:4096',
-                'role' => 'nullable|in:User,Agent,admin',
+                'role' => 'nullable|in:User,Agent,adminreal_estate_office',
                 'first_name' => 'nullable|string|max:255',
                 'last_name' => 'nullable|string|max:255',
                 'address' => 'nullable|string|max:255',
