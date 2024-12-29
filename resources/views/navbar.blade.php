@@ -110,7 +110,7 @@
             @auth
               <a href="{{ route('agent.admin-dashboard') }}" class="btn-get-started">
                 <div class="user-initial-circle">
-                  {{ strtoupper(substr(auth()->user()->username, 0, 1)) }}
+                  {{ strtoupper(substr(auth()->user()->name, 0, 1)) }}
                 </div>
               </a>
             @else

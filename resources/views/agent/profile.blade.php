@@ -70,11 +70,13 @@
         }
 
         .profile-photo {
-            
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+    width: 100px; /* Adjust based on the desired size */
+    height: 100px; /* Adjust based on the desired size */
+    object-fit: cover;
+    image-rendering: -webkit-optimize-contrast; /* Improve rendering on Webkit-based browsers */
+    image-rendering: crisp-edges; /* Try different rendering modes */
+}
+
 
       /* Container for profile information */
 .profile-info {
@@ -106,7 +108,7 @@
     align-items: center; /* Center items vertically */
     text-decoration: underline; /* Underline the text */
     text-underline-offset: 3px; /* Adjust distance between underline and text */
-    margin-left: 1185px;
+    margin-left: 1285px;
     margin-bottom: 86px; 
     background: none;
     padding-left: 8px;
@@ -121,6 +123,7 @@
 
 /* Icon inside the edit button */
 .edit-btn i {
+    margin-top: 1px;
     margin-right: 0px;
     /* Space between icon and text */
 }
@@ -218,18 +221,21 @@
 
             <div class="profile-info">
                 <div class="profile-photo-container">
-                <img src="{{ asset($user->image ? $user->image : 'property_images/IMG_0697.JPG') }}" alt="Profile Photo" class="profile-photo">
+                <img src="{{ asset($user->image ? $user->image : 'property_images/IMG_0697.JPG') }}" 
+     srcset="{{ asset($user->image) }} 1x, {{ asset($user->image) }} 2x" 
+     alt="Profile Photo" 
+     class="profile-photo">
 
                 </div>
 
 
-                <h1 class="username">{{ $user->username }}</h1>
+                <h1 class="username">{{ $user->name }}</h1>
 <p class="role">{{ $user->role }}</p>
 
 
 
 
-<button class="edit-btn" onclick="window.location.href='{{ route('profile.edit', ['id' => $user->id]) }}'">
+<button class="edit-btn" onclick="window.location.href='{{ route('profile.edit', ['id' => $user->user_id]) }}'">
     <i class="fas fa-edit"></i> Edit
 </button>
 

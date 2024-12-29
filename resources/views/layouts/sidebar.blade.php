@@ -68,9 +68,26 @@
     <a href="{{ route('admin.profile') }}" class="{{ request()->routeIs('admin.profile') ? 'active' : '' }}">
         <i class="fas fa-user"></i> My Profile
     </a>
-    <a class="unique-nav-link {{ request()->routeIs('newindex') ? ' active' : '' }}" href="{{ route('newindex') }}">
+  
+
+    <a href="{{ route('notifications') }}" class="{{ request()->routeIs('notifications') ? 'active' : '' }}">
+    <i class="fas fa-bell"></i> Notifications
+</a>
+
+<a href="{{ route('schedule') }}" class="{{ request()->routeIs('schedule') ? 'active' : '' }}">
+    <i class="fas fa-calendar-alt"></i> Schedule
+</a>
+
+
+
+<a href="{{ route('projects') }}" class="{{ request()->routeIs('projects') ? 'active' : '' }}">
+    <i class="fas fa-tasks"></i> Projects
+</a>
+
+<a class="unique-nav-link {{ request()->routeIs('newindex') ? ' active' : '' }}" href="{{ route('newindex') }}">
     <i class="fas fa-external-link-alt"></i> Go To Website
     </a>
+    
     <!-- Logout Form -->
     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
         @csrf

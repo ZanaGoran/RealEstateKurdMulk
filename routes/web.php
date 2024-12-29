@@ -19,7 +19,8 @@ Route::get('/navbar', function () {
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
 
 Route::match(['get', 'post'], '/login-page', function () {
     return view('login-page');
@@ -31,9 +32,26 @@ Route::get('register', function () {
 
 Route::post('user-create', [CustomAuthController::class, 'userCreate'])->name('user-create');
 Route::post('/login', [CustomAuthController::class, 'login'])->name('login');
+
+
 Route::post('/logout', [CustomAuthController::class, 'logout'])->name('logout');
 
-Route::get('/portfolio/{id}', [PropertyController::class, 'showPortfolio'])->name('property.portfolio');
+
+
+
+
+Route::get('/PropertyDetail/{property_id}', [PropertyController::class, 'showPortfolio'])->name('property.PropertyDetail');
+
+Route::get('/admin/property-list', [PropertyController::class, 'showUserProperties'])->name('admin.property-list');
+
+Route::get('/user-properties', [PropertyController::class, 'userPropertyList'])->name('property.userPropertyList');
+
+
+Route::get('/notifications', [NotificationController::class, 'showNotifications'])->name('notifications.show');
+Route::get('/notifications/read/{id}', [NotificationController::class, 'markAsRead'])->name('notifications.markAsRead');
+Route::get('/notifications/delete/{id}', [NotificationController::class, 'destroy'])->name('notifications.delete');
+
+
 Route::get('upload', function () {
     return view('upload');
 })->name('upload');
@@ -43,6 +61,7 @@ Route::get('about-us', function () {
 Route::get('contact-us', function () {
     return view('contact-us');
 })->name('contact-us');
+
 
 Route::get('/property/list', [PropertyController::class, 'getList'])->name('property.list');
 Route::post('/property/upload', [PropertyController::class, 'postProperty'])->name('property.upload');
@@ -55,8 +74,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/property/{id}', [PropertyController::class, 'getPropertyDetails'])->name('property.details');
 });
 
-Route::post('/property/remove-photo', [PropertyController::class, 'removePhoto'])->name('property.removePhoto');
-Route::delete('/property/{id}/remove-image', [PropertyController::class, 'removeImage'])->name('property.removeImage');
+Route::post('property/{property_id}/remove-image', [PropertyController::class, 'removeImage'])->name('property.removeImage');
+
+
+
 
 Route::get('/search', [PropertyController::class, 'search'])->name('search');
 Route::get('/properties/search', [PropertyController::class, 'search'])->name('properties.search');
@@ -70,9 +91,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/review', [CustomAuthController::class, 'showReviews'])->name('agent.review');
 });
 
-Route::get('/property/edit/{id}', [PropertyController::class, 'editProperty'])->name('property.edit');
-Route::get('/properties/{id}/edit', [PropertyController::class, 'edit'])->name('property.edit');
-Route::put('/properties/{id}', [PropertyController::class, 'update'])->name('property.update');
+Route::get('/properties/{property_id}/edit', [PropertyController::class, 'editProperty'])->name('property.edit');
+
+Route::put('/properties/{property_id}', [PropertyController::class, 'update'])->name('property.update');
 
 
 Route::post('/custom-login', [CustomAuthController::class, 'login'])->name('custom-login');
@@ -81,11 +102,13 @@ Route::get('/search', [PropertyController::class, 'search'])->name('properties.s
 // Define a route for editing the user profile
 
 Route::get('/agent/{id}/edit', [CustomAuthController::class, 'editUser'])->name('user.edit');
-Route::put('/agent/{id}', [CustomAuthController::class, 'updateUser'])->name('user.update');
+
 // Route to show the edit form for a user
 // Routes with 'profile' prefix
 Route::get('/profile/{id}/edit', [CustomAuthController::class, 'editUser'])->name('profile.edit');
 Route::put('/profile/{id}', [CustomAuthController::class, 'updateUser'])->name('profile.update');
+
+
 
 
 
@@ -128,3 +151,20 @@ Route::get('/projects', [ProjectController::class, 'index']);
 Route::get('/projects/{id}', [ProjectController::class, 'show']);
 // Create a new project (protected by authentication)
 Route::middleware('auth:sanctum')->post('/projects', [ProjectController::class, 'store']);
+
+
+//added routes 
+
+Route::get('/schedule', [AppointmentController::class, 'showSchedule'])->name('schedule');
+
+Route::get('/appointments/schedule-list', [AppointmentController::class, 'showScheduleList'])->name('appointments.scheduleList');
+
+
+Route::get('/notifications', [NotificationController::class, 'showNotifications']);
+Route::get('/notifications', [NotificationController::class, 'showNotifications'])->name('notifications');
+
+
+Route::get('/projects', [ProjectController::class, 'showProjects'])->name('projects');
+
+
+Route::post('/projects/store', [ProjectController::class, 'store'])->name('projects.store');

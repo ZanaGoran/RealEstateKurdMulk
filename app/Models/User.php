@@ -3,17 +3,27 @@
 namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail as MustVerifyEmailContract;
-use Illuminate\Auth\MustVerifyEmail as MustVerifyEmailTrait; // Corrected import
+use Illuminate\Auth\MustVerifyEmail as MustVerifyEmailTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Support\Str;
 
 class User extends Authenticatable implements MustVerifyEmailContract
 {
     use HasFactory, Notifiable, HasApiTokens, MustVerifyEmailTrait;
+
+    // Specify the primary key
+    protected $primaryKey = 'user_id';
+
+    // Indicate that the primary key is auto-incrementing
+    public $incrementing = true;
+
+    // Set the key type to int
+    protected $keyType = 'int';
+
+    // Field casts
     protected $casts = [
         'email_verified' => 'boolean',
         'active' => 'boolean',
@@ -21,11 +31,9 @@ class User extends Authenticatable implements MustVerifyEmailContract
     ];
 
     protected $fillable = [
-        'username',
+        'name',
         'password',
         'email',
-        'first_name',
-        'last_name',
         'image',
         'phone',
         'address',
@@ -45,26 +53,28 @@ class User extends Authenticatable implements MustVerifyEmailContract
         'role',
         'active',
     ];
-
-
+    
+    
 
     protected $hidden = [
         'password',
         'remember_token',
     ];
 
-
-
+    // Define relationship with properties
     public function properties()
     {
         return $this->hasMany(Property::class);
     }
+
     protected static function boot()
     {
         parent::boot();
 
         static::creating(function ($user) {
-            $user->email_verification_token = Str::random(60);
+            if (empty($user->email_verification_token)) {
+                $user->email_verification_token = Str::random(60);
+            }
         });
     }
 }

@@ -299,11 +299,19 @@
             <div class="form signup_form">
                 <form action="{{ route('user-create') }}" method="POST" enctype="multipart/form-data">
                     @csrf
+
+                    @if(session('error'))
+    <div class="alert alert-danger">{{ session('error') }}</div>
+@endif
+@if(session('success'))
+    <div class="alert alert-success">{{ session('success') }}</div>
+@endif
+
                     <h2>Signup</h2>
                     <div class="input_box">
                         <i class="uil uil-user"></i>
-                        <input type="text" name="username" value="{{ old('username') }}" placeholder="Enter your username" required />
-                        @error('username')
+                        <input type="text" name="name" value="{{ old('name') }}" placeholder="Enter your username" required />
+                        @error('name')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
@@ -332,7 +340,7 @@
                     </div>
                     <div class="input_box">
                         <i class="uil uil-phone"></i>
-                        <input type="text" name="phone" value="{{ old('phone') }}" placeholder="Enter your phone number" required />
+                        <input type="tel" name="phone" value="{{ old('phone') }}" pattern="[0-9]{10,15}" placeholder="Enter your phone number" required />
                         @error('phone')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror

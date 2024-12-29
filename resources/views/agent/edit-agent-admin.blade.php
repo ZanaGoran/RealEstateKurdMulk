@@ -110,17 +110,18 @@ button:focus {
     </style>
 </head>
 <body>
+@include('layouts.sidebar')
     <div class="container">
         <h1>Edit User</h1>
-        <form action="{{ route('profile.update', ['id' => $user->id]) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('profile.update', ['id' => $user->user_id]) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
 
             <!-- Username Field -->
             <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" name="username" id="username" class="form-control" value="{{ old('username', $user->username) }}" required>
-                @error('username')
+                <label for="name">Username</label>
+                <input type="text" name="name" id="name" class="form-control" value="{{ old('name', $user->name) }}" required>
+                @error('name')
                     <div class="text-danger">{{ $message }}</div>
                 @enderror
             </div>
@@ -169,9 +170,6 @@ button:focus {
                     <div class="text-danger">{{ $message }}</div>
                 @enderror
             </div>
-
-            <!-- Other Fields -->
-            <!-- Add other fields as needed, similar to the ones above -->
 
             <!-- Submit Button -->
             <button type="submit" class="btn btn-primary">Update User</button>

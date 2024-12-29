@@ -182,7 +182,8 @@
     </style>
 </head>
 <body class="black-navbar">
-@include('navbar')
+@include('layouts.sidebar')
+
     <div class="container">
        
         <div id="error-messages"></div>
@@ -194,14 +195,23 @@
                 <input type="text" id="title" name="title" required />
             </div>
 
-            <div>
-                <label for="location">Location:</label>
-                <input type="text" id="location" name="location" required />
-            </div>
 
             <div>
-                <label for="type">Type:</label>
-                <select id="type" name="type" required>
+    <label for="address">Address:</label>
+    <input type="text" id="address" name="address"  required />
+</div>
+
+
+            <div>
+    <label for="location">Location:</label>
+    <input type="text" id="location" name="location" placeholder="36°07'27.3\"N 44°01'15.8\"E" required />
+</div>
+
+
+
+            <div>
+                <label for="property_type">property type:</label>
+                <select id="property_type" name="property_type" required>
                     <option value="house">House</option>
                     <option value="property">Property</option>
                     <option value="apartment">Apartment</option>
@@ -209,8 +219,8 @@
             </div>
 
             <div>
-                <label for="type_of_rent">Type of Rent:</label>
-                <select id="type_of_rent" name="type_of_rent" required>
+                <label for="listing_type">Type of Rent:</label>
+                <select id="listing_type" name="listing_type" required>
                     <option value="sell">Sell</option>
                     <option value="rent">Rent</option>
                 </select>
@@ -227,14 +237,11 @@
             </div>
 
             <div>
-                <label for="square_footage">Square Footage:</label>
-                <input type="number" id="square_footage" name="square_footage" required />
+                <label for="area">Square Footage:</label>
+                <input type="number" id="area" name="area" required />
             </div>
 
-            <div>
-                <label for="parking_spaces">Parking Spaces:</label>
-                <input type="number" id="parking_spaces" name="parking_spaces" required />
-            </div>
+        
 
             <div>
                 <label for="flooring">Flooring:</label>
@@ -254,7 +261,7 @@
             <div id="preview" class="preview"></div>
             <div id="drop-zone" class="drop-zone">
                 Drag and drop photos here
-                <input type="file" id="fileInputButton" name="photos[]" multiple />
+                <input type="file" id="fileInputButton" name="images[]" multiple />
             </div>
 
             <button type="submit" id="submitBtn">Submit</button>

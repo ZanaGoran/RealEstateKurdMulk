@@ -78,9 +78,9 @@
         @foreach($properties as $property)
             <li>
                 <div class="item-container">
-                    <a href="{{ route('property.portfolio', ['id' => $property->id]) }}">
+                <a href="{{ route('property.PropertyDetail', ['property_id' => $property->property_id]) }}">
                     <div class="background-image-container">
-                        @foreach($property->photos as $index => $photo)
+                        @foreach($property->images as $index => $photo)
                             <div class="background-image{{ $index == 0 ? ' active' : '' }}" style="background-image: url('{{ asset($photo) }}');"></div>
                         @endforeach
                         </a>
@@ -88,13 +88,13 @@
                         <div class="arrow next"><i class="fas fa-chevron-right"></i></div>
                         <div class="item-date"><i class="fas fa-calendar-alt"></i> {{ $property->created_at->format('d/m/Y') }}</div>
                     </div>
-                    <div class="item-home-type">{{ $property->type }}</div>
-                    <div class="item-type-of-home">{{ $property->type_of_rent }}</div>
-                    <a href="{{ route('property.portfolio', ['id' => $property->id]) }}" class="details-link" title="More Details">
+                    <div class="item-home-type">{{ $property->property_type }}</div>
+                    <div class="item-type-of-home">{{ $property->listing_type }}</div>
+                    <a href="{{ route('property.PropertyDetail', ['property_id' => $property->property_id]) }}" class="details-link" title="More Details">
                         <div class="detail-of-home">
                             <div class="item-price">${{ number_format($property->price) }}</div>
                             <div class="title">{{ $property->title }}</div>
-                            <div class="item-location"><i class="fas fa-map-marker-alt"></i> {{ $property->location }}</div>
+                            <div class="item-location"><i class="fas fa-map-marker-alt"></i> {{ $property->address }}</div>
                             <div class="item-info">
                                 <span><i class="fas fa-bed"></i>  {{ $property->bedrooms }} Bed</span>
                                 <span><i class="fas fa-bath"></i>  {{ $property->bathrooms }} Bath</span>

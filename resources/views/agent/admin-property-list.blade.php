@@ -138,7 +138,7 @@
 
         .detail-of-home {
            
-            padding: 5px;
+            padding: 5px 10px;
             background: #f5f5f5;
             color: #353839;
             text-align: left;
@@ -180,8 +180,8 @@
 
 
         .detail-of-home .item-info {
-            margin-right: 5px;
-    padding-top: 8px;
+            margin-right: 10px;
+    padding-top: 10px;
     display: flex;
     flex-wrap: wrap; /* Allow wrapping if needed */
     gap: 17px; /* Reduced gap */
@@ -189,7 +189,7 @@
 }
 
 .detail-of-home .item-info span {
-    width: 50px;
+    width: 40px;
     font-size: 16px;
     display: flex;
     align-items: center;
@@ -374,52 +374,50 @@
     </style>
 </head>
 <body class="custom-navbar-color">
-
- 
     @include('layouts.sidebar')
 
     <div class="allin">
-  
-
         <div class="container">
             <ul id="product-list">
-                @foreach ($properties as $property)
-                <a href="{{ route('property.portfolio', ['id' => $property->id]) }}">
-                <li class="item-container" data-type="{{ $property->type }}" data-category="{{ $property->category }}">
-                <div class="background-image-container">
-    @foreach($property->photos as $index => $photo)
-        <div class="background-image{{ $index == 0 ? ' active' : '' }}" style="background-image: url('{{ asset($photo) }}');"></div>
-    @endforeach
-    <a href="{{ route('property.edit', ['id' => $property->id]) }}" class="edit-button">Edit</a>
-</div>
+                @forelse ($properties as $property)
+                    <a href="{{ route('property.PropertyDetail', ['property_id' => $property->property_id]) }}">
+                        <li class="item-container" data-type="{{ $property->type }}" data-category="{{ $property->category }}">
+                            <div class="background-image-container">
+                            @php
+    // Decode the JSON string to an array if it's not already an array
+    $images = is_array($property->images) ? $property->images : json_decode($property->images, true);
+@endphp
 
-                    <div class="detail-of-home">
-                        <div class="title">{{ $property->title }}</div>
-                        <div class="item-location"><i class="fas fa-map-marker-alt"></i> {{ $property->location }}</div>
-                        <div class="item-price">${{ $property->price }}</div>
-                        <div class="item-info">
-                                <span><i class="fas fa-bed"></i>  {{ $property->bedrooms }} Bed</span>
-                                <span><i class="fas fa-bath"></i>  {{ $property->bathrooms }} Bath</span>
-                                <span><i class="fas fa-ruler-combined"></i>  {{ $property->square_footage }} m²</span>
+@foreach($images as $index => $photo)
+    <div class="background-image{{ $index == 0 ? ' active' : '' }}" style="background-image: url('{{ asset($photo) }}');"></div>
+@endforeach
+
+                                <a href="{{ route('property.edit', ['property_id' => $property->property_id]) }}" class="edit-button">Edit</a>
                             </div>
-                            </a>
-                    </div>
-                </li>
-                @endforeach
+                            <div class="detail-of-home">
+                                <div class="title">{{ $property->title }}</div>
+                                <div class="item-location"><i class="fas fa-map-marker-alt"></i> {{ $property->address }}</div>
+                                <div class="item-price">${{ $property->price }}</div>
+                                <div class="item-info">
+                                    <span><i class="fas fa-bed"></i> {{ $property->bedrooms }} Bed</span>
+                                    <span><i class="fas fa-bath"></i> {{ $property->bathrooms }} Bath</span>
+                                    <span><i class="fas fa-ruler-combined"></i> {{ $property->area }} m²</span>
+                                </div>
+                            </div>
+                        </li>
+                    </a>
+                @empty
+                    <p id="no-products-message">No products found.</p>
+                @endforelse
             </ul>
         </div>
-        <div id="no-products-message">No products found.</div>
     </div>
+
     <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/isotope.pkgd/3.0.6/isotope.pkgd.min.js"></script>
-<script>
- 
-</script>
-
-
-
-
-
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/isotope.pkgd/3.0.6/isotope.pkgd.min.js"></script>
+    <script>
+        // Your JavaScript here if needed
+    </script>
 </body>
+
 </html>

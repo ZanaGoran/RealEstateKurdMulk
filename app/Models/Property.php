@@ -9,6 +9,10 @@ class Property extends Model
 {
     use HasFactory;
 
+    protected $table = 'properties'; // Ensure this matches your table name
+    protected $primaryKey = 'property_id'; // Specify the primary key if it's not 'id'
+    public $incrementing = true; // If the primary key is an auto-incrementing integer
+
     protected $fillable = [
         'user_id',
         'title',
@@ -16,12 +20,11 @@ class Property extends Model
         'location',
         'lat',
         'lng',
-        'type',
-        'type_of_rent',
+        'property_type',
         'bedrooms',
         'bathrooms',
         'parking_spaces',
-        'square_footage',
+        'area',
         'furnishing',
         'flooring',
         'water_supply',
@@ -29,7 +32,7 @@ class Property extends Model
         'price',
         'currency',
         'payment_frequency',
-        'photos',
+        'images',
         'videos',
         'virtual_tour',
         'additional_information',
@@ -39,11 +42,12 @@ class Property extends Model
         'views',
         'likes',
         'dislikes',
+        'address',
         'comments',
     ];
 
     protected $casts = [
-        'photos' => 'array',
+        'images' => 'array',
         'videos' => 'json',
         'comments' => 'json',
         'featured' => 'boolean',

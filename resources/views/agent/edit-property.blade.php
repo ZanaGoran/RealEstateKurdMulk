@@ -187,113 +187,99 @@
    
 </head>
 <body class="black-navbar">
-    @include('navbar')
+@include('layouts.sidebar')
 
-    <div class="container">
-        <div id="error-messages"></div>
-        <form action="{{ route('property.update', $property->id) }}" method="post" class="property-form" id="propertyForm" enctype="multipart/form-data">
-            @csrf
-            @method('PUT')
+<div class="container">
+    <div id="error-messages"></div>
+    <form action="{{ route('property.update', $property->property_id) }}" method="post" class="property-form" id="propertyForm" enctype="multipart/form-data">
+        @csrf
+        @method('PUT')
 
-            <!-- Form fields for property details -->
-            <div>
-                <label for="title">Title:</label>
-                <input type="text" id="title" name="title" value="{{ old('title', $property->title) }}" required />
-            </div>
-
-            <div>
-                <label for="location">Location:</label>
-                <input type="text" id="location" name="location" value="{{ old('location', $property->location) }}" required />
-            </div>
-
-            <div>
-                <label for="type">Type:</label>
-                <select id="type" name="type" required>
-                    <option value="house" {{ old('type', $property->type) === 'house' ? 'selected' : '' }}>House</option>
-                    <option value="property" {{ old('type', $property->type) === 'property' ? 'selected' : '' }}>Property</option>
-                    <option value="apartment" {{ old('type', $property->type) === 'apartment' ? 'selected' : '' }}>Apartment</option>
-                </select>
-            </div>
-
-            <div>
-                <label for="type_of_rent">Type of Rent:</label>
-                <select id="type_of_rent" name="type_of_rent" required>
-                    <option value="sell" {{ old('type_of_rent', $property->type_of_rent) === 'sell' ? 'selected' : '' }}>Sell</option>
-                    <option value="rent" {{ old('type_of_rent', $property->type_of_rent) === 'rent' ? 'selected' : '' }}>Rent</option>
-                </select>
-            </div>
-
-            <div>
-                <label for="bedrooms">Bedrooms:</label>
-                <input type="number" id="bedrooms" name="bedrooms" value="{{ old('bedrooms', $property->bedrooms) }}" required />
-            </div>
-
-            <div>
-                <label for="bathrooms">Bathrooms:</label>
-                <input type="number" id="bathrooms" name="bathrooms" value="{{ old('bathrooms', $property->bathrooms) }}" required />
-            </div>
-
-            <div>
-                <label for="square_footage">Square Footage:</label>
-                <input type="number" id="square_footage" name="square_footage" value="{{ old('square_footage', $property->square_footage) }}" required />
-            </div>
-
-            <div>
-                <label for="parking_spaces">Parking Spaces:</label>
-                <input type="number" id="parking_spaces" name="parking_spaces" value="{{ old('parking_spaces', $property->parking_spaces) }}" required />
-            </div>
-
-            <div>
-                <label for="flooring">Flooring:</label>
-                <input type="text" id="flooring" name="flooring" value="{{ old('flooring', $property->flooring) }}" required />
-            </div>
-
-            <div>
-                <label for="price">Price:</label>
-                <input type="number" id="price" name="price" value="{{ old('price', $property->price) }}" required />
-            </div>
-
-            <div>
-                <label for="additional_information">Additional Information:</label>
-                <textarea id="additional_information" name="description">{{ old('description', $property->description) }}</textarea>
-            </div>
-
-            
-          
-
-<!-- Hidden input to store removed image paths -->
-<input type="hidden" id="removed_photos" name="removed_photos[]">
-
-<div id="drop-zone" class="drop-zone">
-    Drag and drop photos here
-    <input type="file" id="fileInputButton" name="photos[]" multiple />
-</div>
-   <div id="preview" class="preview"></div>
-       
-<button type="submit" id="submitBtn">Submit</button>
-
-
-</form>
-@foreach (json_decode($property->photos, true) as $photo)
-    <div class="photo-container" data-photo="{{ $photo }}">
-        <img src="{{ asset($photo) }}" alt="Property Image" class="property-image">
-        <div class="remove-button-container">
-            <form action="{{ route('property.removeImage', $property->id) }}" method="POST" class="remove-image-form">
-                @csrf
-                @method('DELETE')
-                <input type="hidden" name="photo_path" value="{{ $photo }}">
-                <button type="submit" class="btn btn-danger">X</button>
-            </form>
+        <!-- Form fields for property details -->
+        <div>
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" value="{{ old('title', $property->title) }}" required />
         </div>
-    </div>
-@endforeach
 
+        <div>
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" value="{{ old('address', $property->address) }}" required />
+        </div>
+
+        <div>
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location" value="{{ old('location', $property->location) }}" required />
+        </div>
+        <!-- Select dropdown for property type -->
+        <div>
+            <label for="type">Type:</label>
+            <select id="type" name="type" required>
+                <option value="house" {{ old('type', $property->type) === 'house' ? 'selected' : '' }}>House</option>
+                <option value="property" {{ old('type', $property->type) === 'property' ? 'selected' : '' }}>Property</option>
+                <option value="apartment" {{ old('type', $property->type) === 'apartment' ? 'selected' : '' }}>Apartment</option>
+            </select>
+        </div>
+
+        <!-- Type of Rent -->
+        <div>
+            <label for="type_of_rent">Type of Rent:</label>
+            <select id="type_of_rent" name="type_of_rent" required>
+                <option value="sell" {{ old('type_of_rent', $property->type_of_rent) === 'sell' ? 'selected' : '' }}>Sell</option>
+                <option value="rent" {{ old('type_of_rent', $property->type_of_rent) === 'rent' ? 'selected' : '' }}>Rent</option>
+            </select>
+        </div>
+
+        <!-- Additional fields -->
+        <div><label for="bedrooms">Bedrooms:</label><input type="number" id="bedrooms" name="bedrooms" value="{{ old('bedrooms', $property->bedrooms) }}" required /></div>
+        <div><label for="bathrooms">Bathrooms:</label><input type="number" id="bathrooms" name="bathrooms" value="{{ old('bathrooms', $property->bathrooms) }}" required /></div>
+        <div>
+    <label for="area">Square Footage:</label>
+    <input type="number" id="area" name="area" value="{{ old('area', $property->area) }}" required />
+</div>
+
+        <div><label for="flooring">Flooring:</label><input type="text" id="flooring" name="flooring" value="{{ old('flooring', $property->flooring) }}" required /></div>
+        <div><label for="price">Price:</label><input type="number" id="price" name="price" value="{{ old('price', $property->price) }}" required /></div>
+        <div>
+            <label for="additional_information">Additional Information:</label>
+            <textarea id="additional_information" name="description">{{ old('description', $property->description) }}</textarea>
+        </div>
+
+        <!-- Hidden input to store removed image paths -->
+        <input type="hidden" id="removed_photos" name="removed_photos[]">
+
+        <!-- Drop zone for images -->
+        <div id="drop-zone" class="drop-zone">
+            Drag and drop photos here
+            <input type="file" id="fileInputButton" name="images[]" multiple />
+        </div>
+        <div id="preview" class="preview"></div>
+
+        <button type="submit" id="submitBtn">Submit</button>
+    </form>
+
+    <!-- Display existing images -->
+    @php
+        $images = is_string($property->images) ? json_decode($property->images, true) : $property->images;
+    @endphp
+    @foreach ($images as $photo)
+        <div class="photo-container" data-photo="{{ $photo }}">
+            <img src="{{ asset($photo) }}" alt="Property Image" class="property-image">
+            <div class="remove-button-container">
+            <form action="{{ route('property.removeImage', ['property_id' => $property->property_id]) }}" method="POST" class="remove-image-form">
+    @csrf
+    <input type="hidden" name="photo_path" value="{{ $photo }}">
+    <button type="submit" class="btn btn-danger">X</button>
+                </form>
+            </div>
+        </div>
+    @endforeach
+
+    <!-- Display success or error messages -->
     @if(session('success'))
         <div class="alert alert-success">
             {{ session('success') }}
         </div>
     @endif
-
     @if($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -306,123 +292,101 @@
 </div>
 
 <script>
+// JavaScript to handle file preview, drag/drop, and image removal
 document.addEventListener('DOMContentLoaded', function () {
-const dropZone = document.getElementById("drop-zone");
-const preview = document.getElementById("preview");
-const fileInputButton = document.getElementById("fileInputButton");
-const errorMessages = document.getElementById("error-messages");
-const removedPhotosInput = document.getElementById("removed_photos");
+    const dropZone = document.getElementById("drop-zone");
+    const preview = document.getElementById("preview");
+    const fileInputButton = document.getElementById("fileInputButton");
+    const errorMessages = document.getElementById("error-messages");
+    const removedPhotosInput = document.getElementById("removed_photos");
 
-let totalFileSize = 0;
-let removedPhotos = [];
+    let totalFileSize = 0;
+    let removedPhotos = [];
 
-dropZone.addEventListener("dragover", handleDragOver, false);
-dropZone.addEventListener("dragleave", handleDragLeave, false);
-dropZone.addEventListener("drop", handleDrop, false);
-fileInputButton.addEventListener("change", handleFiles, false);
+    dropZone.addEventListener("dragover", handleDragOver, false);
+    dropZone.addEventListener("dragleave", handleDragLeave, false);
+    dropZone.addEventListener("drop", handleDrop, false);
+    fileInputButton.addEventListener("change", handleFiles, false);
 
-function handleDragOver(event) {
-    event.preventDefault();
-    dropZone.classList.add("highlight");
-}
+    function handleDragOver(event) {
+        event.preventDefault();
+        dropZone.classList.add("highlight");
+    }
 
-function handleDragLeave(event) {
-    event.preventDefault();
-    dropZone.classList.remove("highlight");
-}
+    function handleDragLeave(event) {
+        event.preventDefault();
+        dropZone.classList.remove("highlight");
+    }
 
-function handleDrop(event) {
-    event.preventDefault();
-    dropZone.classList.remove("highlight");
+    function handleDrop(event) {
+        event.preventDefault();
+        dropZone.classList.remove("highlight");
 
-    const files = Array.from(event.dataTransfer.files);
+        const files = Array.from(event.dataTransfer.files);
+        files.forEach(file => processFile(file));
+    }
 
-    files.forEach(function (file) {
+    function handleFiles(event) {
+        const files = Array.from(event.target.files);
+        files.forEach(file => processFile(file));
+    }
+
+    function processFile(file) {
         if (checkTotalFileSize(file.size)) {
             totalFileSize += file.size;
             previewFile(file);
         } else {
             displayErrorMessage("File size exceeds the limit (20 MB). Please choose smaller files.");
         }
-    });
-}
+    }
 
-function handleFiles(event) {
-    const files = Array.from(event.target.files);
+    function checkTotalFileSize(fileSize) {
+        const maxSize = 20 * 1024 * 1024; // 20 MB
+        return totalFileSize + fileSize <= maxSize;
+    }
 
-    files.forEach(function (file) {
-        if (checkTotalFileSize(file.size)) {
-            totalFileSize += file.size;
-            previewFile(file);
-        } else {
-            displayErrorMessage("File size exceeds the limit (20 MB). Please choose smaller files.");
-        }
-    });
-}
+    function previewFile(file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            const imgContainer = document.createElement("div");
+            imgContainer.classList.add("preview-item");
 
-function checkTotalFileSize(fileSize) {
-    const maxSize = 20 * 1024 * 1024; // 20 MB
-    return totalFileSize + fileSize <= maxSize;
-}
+            const img = document.createElement("img");
+            img.src = e.target.result;
 
-function removeFile(fileSize) {
-    totalFileSize -= fileSize;
-}
+            const removeButton = document.createElement("button");
+            removeButton.innerHTML = "x";
+            removeButton.classList.add("remove-button");
+            removeButton.addEventListener("click", () => {
+                preview.removeChild(imgContainer);
+                totalFileSize -= file.size;
+            });
 
-function previewFile(file) {
-    const reader = new FileReader();
+            imgContainer.appendChild(img);
+            imgContainer.appendChild(removeButton);
+            preview.appendChild(imgContainer);
+        };
+        reader.readAsDataURL(file);
+    }
 
-    reader.onload = function (e) {
-        const imgContainer = document.createElement("div");
-        imgContainer.classList.add("preview-item");
+    function displayErrorMessage(message) {
+        errorMessages.textContent = "";
+        const errorMessageElement = document.createElement("div");
+        errorMessageElement.textContent = message;
+        errorMessageElement.style.color = "red";
+        errorMessages.appendChild(errorMessageElement);
+    }
 
-        const img = document.createElement("img");
-        img.src = e.target.result;
-
-        const removeButton = document.createElement("button");
-        removeButton.innerHTML = "x";
-        removeButton.classList.add("remove-button");
-        removeButton.setAttribute("data-photo", file.name); // Use the file name as a placeholder
-        removeButton.addEventListener("click", function () {
-            preview.removeChild(imgContainer);
-            removeFile(file.size);
+    // Update hidden input with removed photos on delete
+    document.querySelectorAll('.remove-image-form').forEach(form => {
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const photoPath = this.querySelector('input[name="photo_path"]').value;
+            removedPhotos.push(photoPath);
+            removedPhotosInput.value = JSON.stringify(removedPhotos);
+            this.submit();
         });
-
-        imgContainer.appendChild(img);
-        imgContainer.appendChild(removeButton);
-        preview.appendChild(imgContainer);
-    };
-
-    reader.readAsDataURL(file);
-}
-
-function displayErrorMessage(message) {
-    const errorMessageElement = document.createElement("div");
-    errorMessageElement.textContent = message;
-    errorMessageElement.style.whiteSpace = "pre";
-    errorMessageElement.style.color = "red";
-    errorMessageElement.style.display = "inline-block";
-    errorMessages.appendChild(errorMessageElement);
-}
-
-// Update hidden input with removed photos
-document.querySelectorAll('.remove-image-form').forEach(function (form) {
-    form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        const photoPath = this.querySelector('input[name="photo_path"]').value;
-        removedPhotos.push(photoPath);
-
-        // Update the hidden input field
-        removedPhotosInput.value = JSON.stringify(removedPhotos);
-
-        // Send the request to remove the photo
-        this.submit();
     });
 });
-});
-
 </script>
 </body>
-
-</body>
-</html>
